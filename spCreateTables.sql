@@ -8,38 +8,42 @@ GO
 -- Description:	CMPG223  create tables stored proc
 -- =============================================
 
+
+DROP TABLE IF EXISTS District, Employee, Respondent, RespondentQuestionnaire, Questionnaire, City, Survey;
+GO
+
 CREATE TABLE Survey (
-	Survey_ID INT NOT NULL PRIMARY KEY,
+	Survey_ID INT IDENTITY(1,1) PRIMARY KEY,
 	Name VARCHAR(100),
 	StartDate DATE,
 	EndDate DATE
 )
 
 CREATE TABLE Questionnaire (
-	QN_ID INT NOT NULL PRIMARY KEY,
+	QN_ID INT IDENTITY(1,1) PRIMARY KEY,
 	Survey_ID INT FOREIGN KEY REFERENCES Survey(Survey_ID),
 	desription VARCHAR(MAX)
 )
 
 CREATE TABLE City (
-	City_ID INT NOT NULL PRIMARY KEY, 
+	City_ID INT IDENTITY(1,1) PRIMARY KEY, 
 	City_Name VARCHAR(MAX)
 )
 
 CREATE TABLE District (
-	district_ID INT NOT NULL PRIMARY KEY,
+	district_ID INT IDENTITY(1,1) PRIMARY KEY,
 	district_name VARCHAR(MAX)
 )
 
 CREATE TABLE Employee (
-	Empl_ID INT NOT NULL PRIMARY KEY,
+	Empl_ID INT IDENTITY(1,1) PRIMARY KEY,
 	Name VARCHAR(100),
 	LastName VARCHAR(200),
 	Type_empl VARCHAR(2)	--Type refers to F = FIeldworker, M = Manager etc...
 )
 
 CREATE TABLE Respondent (
-	Resp_ID INT NOT NULL PRIMARY KEY,
+	Resp_ID INT IDENTITY(1,1) PRIMARY KEY,
 	Name VARCHAR(100),
 	LastName VARCHAR(400),
 	DOB DATE,
@@ -57,7 +61,6 @@ CREATE TABLE RespondentQuestionnaire(
 	approved_by INT FOREIGN KEY REFERENCES Employee(Empl_ID),
 	field_worker INT FOREIGN KEY REFERENCES Employee(Empl_ID),
 	CONSTRAINT PK_RespondentQuestionnaire PRIMARY KEY (Resp_ID,QN_ID)
-
 )
 
 
