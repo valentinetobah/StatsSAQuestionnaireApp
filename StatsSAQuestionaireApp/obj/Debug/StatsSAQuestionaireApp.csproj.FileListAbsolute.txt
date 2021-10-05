@@ -1,13 +1,11 @@
-C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSADb.mdf
-C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSADb_log.ldf
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSAQuestionaireApp.exe.config
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSAQuestionaireApp.exe
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSAQuestionaireApp.pdb
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.csprojAssemblyReference.cache
-C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.index.resources
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.Properties.Resources.resources
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.Survey.resources
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.csproj.GenerateResource.cache
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.csproj.CoreCompileInputs.cache
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.exe
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.pdb
+C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.LoginForm.resources

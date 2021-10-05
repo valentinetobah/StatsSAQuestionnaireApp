@@ -29,90 +29,26 @@ namespace StatsSAQuestionaireApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.surveyIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surveyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.statsSADbDataSet = new StatsSAQuestionaireApp.StatsSADbDataSet();
-            this.surveyTableAdapter = new StatsSAQuestionaireApp.StatsSADbDataSetTableAdapters.SurveyTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnDeleteSurvey = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbSurveyName = new System.Windows.Forms.TextBox();
-            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.btnAddNewSurvey = new System.Windows.Forms.Button();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.tbSurveyName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tbSurveyID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.surveyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statsSADbDataSet)).BeginInit();
+            this.dgSurveys = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSurveys)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.surveyIDDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.startDateDataGridViewTextBoxColumn,
-            this.endDateDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.surveyBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 74);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(442, 201);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // surveyIDDataGridViewTextBoxColumn
-            // 
-            this.surveyIDDataGridViewTextBoxColumn.DataPropertyName = "Survey_ID";
-            this.surveyIDDataGridViewTextBoxColumn.HeaderText = "Survey_ID";
-            this.surveyIDDataGridViewTextBoxColumn.Name = "surveyIDDataGridViewTextBoxColumn";
-            this.surveyIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // startDateDataGridViewTextBoxColumn
-            // 
-            this.startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
-            this.startDateDataGridViewTextBoxColumn.HeaderText = "StartDate";
-            this.startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
-            // 
-            // endDateDataGridViewTextBoxColumn
-            // 
-            this.endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
-            this.endDateDataGridViewTextBoxColumn.HeaderText = "EndDate";
-            this.endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
-            // 
-            // surveyBindingSource
-            // 
-            this.surveyBindingSource.DataMember = "Survey";
-            this.surveyBindingSource.DataSource = this.statsSADbDataSet;
-            // 
-            // statsSADbDataSet
-            // 
-            this.statsSADbDataSet.DataSetName = "StatsSADbDataSet";
-            this.statsSADbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // surveyTableAdapter
-            // 
-            this.surveyTableAdapter.ClearBeforeFill = true;
             // 
             // label1
             // 
@@ -157,12 +93,13 @@ namespace StatsSAQuestionaireApp
             // btnDeleteSurvey
             // 
             this.btnDeleteSurvey.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSurvey.Location = new System.Drawing.Point(642, 142);
+            this.btnDeleteSurvey.Location = new System.Drawing.Point(676, 145);
             this.btnDeleteSurvey.Name = "btnDeleteSurvey";
             this.btnDeleteSurvey.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteSurvey.TabIndex = 5;
             this.btnDeleteSurvey.Text = "Delete";
             this.btnDeleteSurvey.UseVisualStyleBackColor = true;
+            this.btnDeleteSurvey.Click += new System.EventHandler(this.btnDeleteSurvey_Click);
             // 
             // groupBox1
             // 
@@ -181,23 +118,36 @@ namespace StatsSAQuestionaireApp
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ADD NEW SURVEY";
             // 
-            // label3
+            // btnAddNewSurvey
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Survey Name:";
+            this.btnAddNewSurvey.Location = new System.Drawing.Point(328, 180);
+            this.btnAddNewSurvey.Name = "btnAddNewSurvey";
+            this.btnAddNewSurvey.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNewSurvey.TabIndex = 6;
+            this.btnAddNewSurvey.Text = "Add";
+            this.btnAddNewSurvey.UseVisualStyleBackColor = true;
+            this.btnAddNewSurvey.Click += new System.EventHandler(this.btnAddNewSurvey_Click);
             // 
-            // label4
+            // dtpEndDate
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 89);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Start Date:";
+            this.dtpEndDate.Location = new System.Drawing.Point(115, 133);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(288, 20);
+            this.dtpEndDate.TabIndex = 5;
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.Location = new System.Drawing.Point(115, 83);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(288, 20);
+            this.dtpStartDate.TabIndex = 4;
+            // 
+            // tbSurveyName
+            // 
+            this.tbSurveyName.Location = new System.Drawing.Point(115, 33);
+            this.tbSurveyName.Name = "tbSurveyName";
+            this.tbSurveyName.Size = new System.Drawing.Size(288, 20);
+            this.tbSurveyName.TabIndex = 3;
             // 
             // label5
             // 
@@ -208,48 +158,36 @@ namespace StatsSAQuestionaireApp
             this.label5.TabIndex = 2;
             this.label5.Text = "End Date:";
             // 
-            // tbSurveyName
+            // label4
             // 
-            this.tbSurveyName.Location = new System.Drawing.Point(115, 33);
-            this.tbSurveyName.Name = "tbSurveyName";
-            this.tbSurveyName.Size = new System.Drawing.Size(288, 20);
-            this.tbSurveyName.TabIndex = 3;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(23, 89);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Start Date:";
             // 
-            // dtpStartDate
+            // label3
             // 
-            this.dtpStartDate.Location = new System.Drawing.Point(115, 83);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(288, 20);
-            this.dtpStartDate.TabIndex = 4;
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Location = new System.Drawing.Point(115, 133);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(288, 20);
-            this.dtpEndDate.TabIndex = 5;
-            // 
-            // btnAddNewSurvey
-            // 
-            this.btnAddNewSurvey.Location = new System.Drawing.Point(328, 180);
-            this.btnAddNewSurvey.Name = "btnAddNewSurvey";
-            this.btnAddNewSurvey.Size = new System.Drawing.Size(75, 23);
-            this.btnAddNewSurvey.TabIndex = 6;
-            this.btnAddNewSurvey.Text = "Add";
-            this.btnAddNewSurvey.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Survey Name:";
             // 
             // tbSurveyID
             // 
-            this.tbSurveyID.Location = new System.Drawing.Point(549, 116);
+            this.tbSurveyID.Location = new System.Drawing.Point(596, 109);
             this.tbSurveyID.Name = "tbSurveyID";
-            this.tbSurveyID.Size = new System.Drawing.Size(168, 20);
+            this.tbSurveyID.Size = new System.Drawing.Size(155, 20);
             this.tbSurveyID.TabIndex = 7;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(476, 119);
+            this.label6.Location = new System.Drawing.Point(523, 112);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 13);
             this.label6.TabIndex = 7;
@@ -259,17 +197,26 @@ namespace StatsSAQuestionaireApp
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(476, 74);
+            this.label7.Location = new System.Drawing.Point(510, 58);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(241, 13);
             this.label7.TabIndex = 8;
             this.label7.Text = "ENTER SURVEY ID BELOW TO DELETE";
             // 
+            // dgSurveys
+            // 
+            this.dgSurveys.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSurveys.Location = new System.Drawing.Point(12, 74);
+            this.dgSurveys.Name = "dgSurveys";
+            this.dgSurveys.Size = new System.Drawing.Size(442, 199);
+            this.dgSurveys.TabIndex = 9;
+            // 
             // Survey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 532);
+            this.ClientSize = new System.Drawing.Size(773, 532);
+            this.Controls.Add(this.dgSurveys);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbSurveyID);
@@ -279,26 +226,18 @@ namespace StatsSAQuestionaireApp
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "Survey";
             this.Text = "Survey";
             this.Load += new System.EventHandler(this.Survey_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.surveyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statsSADbDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSurveys)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private StatsSADbDataSet statsSADbDataSet;
-        private System.Windows.Forms.BindingSource surveyBindingSource;
-        private StatsSADbDataSetTableAdapters.SurveyTableAdapter surveyTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn surveyIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
@@ -319,5 +258,6 @@ namespace StatsSAQuestionaireApp
         private System.Windows.Forms.TextBox tbSurveyID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dgSurveys;
     }
 }
