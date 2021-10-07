@@ -33,7 +33,10 @@ namespace StatsSAQuestionaireApp
 
         private void Survey_Load(object sender, EventArgs e)
         {
-
+            if (!cbIsUpdate.Checked)
+            {
+                tbSurveyIDToUpdate.Enabled = false;
+            }
             selectSurveys();
         }
 
@@ -73,18 +76,22 @@ namespace StatsSAQuestionaireApp
 
                 adapter = new SqlDataAdapter();
 
-                string insertQuery = $"INSERT INTO Survey VALUES('{tbSurveyName.Text}', " +
-                    $"'{dtpStartDate.Value}', '{dtpEndDate.Value}')";
+                DialogResult result;
 
-                command = new SqlCommand(insertQuery, connection);
-                adapter.InsertCommand = command;
-                adapter.InsertCommand.ExecuteNonQuery();
+                if (cbIsUpdate.Checked && tbSurveyIDToUpdate.Text.Length > 0)
+                {
+                    result = updateExistingRecord(adapter, connection);
+                }
+                else
+                {
+                    result = insertNewRecord(adapter, connection);
+                }
 
                 connection.Close();
 
-                DialogResult result = MessageBox.Show("New Survey Sucessfully Added !!!!");
-                if(result == DialogResult.OK)
+                if (result == DialogResult.OK)
                 {
+                    tbSurveyIDToUpdate.Text = "";
                     tbSurveyName.Text = "";
                     Survey_Load(sender, e);
                 }
@@ -96,6 +103,31 @@ namespace StatsSAQuestionaireApp
             }
         }
 
+        private DialogResult insertNewRecord(SqlDataAdapter adapter, SqlConnection con)
+        {
+            string insertQuery = $"INSERT INTO Survey VALUES('{tbSurveyName.Text}', " +
+                   $"'{dtpStartDate.Value}', '{dtpEndDate.Value}')";
+
+            command = new SqlCommand(insertQuery, con);
+            adapter.InsertCommand = command;
+            adapter.InsertCommand.ExecuteNonQuery();
+
+            return MessageBox.Show("New Survey Sucessfully Added !!!!");
+        }
+
+        private DialogResult updateExistingRecord(SqlDataAdapter adapter, SqlConnection con)
+        {
+            string updateQuery = $"Update Survey SET Name = '{tbSurveyName.Text}', " +
+                   $"StartDate = '{dtpStartDate.Value}', EndDate ='{dtpEndDate.Value}'" +
+                   $"WHERE Survey_ID = '{Convert.ToInt32(tbSurveyIDToUpdate.Text)}'";
+
+            command = new SqlCommand(updateQuery, con);
+            adapter.UpdateCommand = command;
+            adapter.UpdateCommand.ExecuteNonQuery();
+
+            return MessageBox.Show("Survey with ID: "+ tbSurveyIDToUpdate.Text
+                + " Sucessfully Updated !!!!");
+        }
         private void btnDeleteSurvey_Click(object sender, EventArgs e)
         {
             try
@@ -123,6 +155,18 @@ namespace StatsSAQuestionaireApp
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void cbIsUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbIsUpdate.Checked)
+            {
+                tbSurveyIDToUpdate.Enabled = true;
+            }
+            else
+            {
+                tbSurveyIDToUpdate.Enabled = false;
             }
         }
     }

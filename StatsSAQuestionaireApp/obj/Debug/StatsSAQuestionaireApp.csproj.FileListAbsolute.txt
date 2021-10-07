@@ -9,3 +9,4 @@ C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQue
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.exe
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.pdb
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.LoginForm.resources
+C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.MainForm.resources

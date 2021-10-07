@@ -43,11 +43,14 @@ namespace StatsSAQuestionaireApp
 
                 if (dataReader.HasRows)
                 {
-                    Survey surveyObject = new Survey();
-                    surveyObject.emp_id = tbEmployeeID.Text;
+                    MainForm mainfrmObject = new MainForm();
+                    mainfrmObject.emp_id = tbEmployeeID.Text;
 
-                    surveyObject.Show();
-                    //surveyObject.ShowDialog();
+                    tbPassword.Text = "";
+                    tbEmployeeID.Text = "";
+
+                    //surveyObject.Show();
+                    mainfrmObject.ShowDialog();
                 }
                 else
                 {
@@ -73,6 +76,12 @@ namespace StatsSAQuestionaireApp
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            tbPassword.Text = "";
+            tbEmployeeID.Text = "";
         }
     }
 }
