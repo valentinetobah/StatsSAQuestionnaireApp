@@ -9,7 +9,7 @@ GO
 -- =============================================
 
 
-DROP TABLE IF EXISTS District, Employee, Respondent, RespondentQuestionnaire, Questionnaire, City, Survey;
+DROP TABLE IF EXISTS District, SystemUser, Employee, Respondent, RespondentQuestionnaire, Questionnaire, City, Survey;
 GO
 
 CREATE TABLE Survey (
@@ -61,6 +61,12 @@ CREATE TABLE RespondentQuestionnaire(
 	approved_by INT FOREIGN KEY REFERENCES Employee(Empl_ID),
 	field_worker INT FOREIGN KEY REFERENCES Employee(Empl_ID),
 	CONSTRAINT PK_RespondentQuestionnaire PRIMARY KEY (Resp_ID,QN_ID)
+)
+
+CREATE TABLE SystemUser(
+	User_ID INT IDENTITY(1,1) PRIMARY KEY,
+	Password VARCHAR(100),
+	Employee_ID INT FOREIGN KEY REFERENCES Employee(Empl_ID)
 )
 
 
