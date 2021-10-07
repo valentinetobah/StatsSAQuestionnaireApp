@@ -1,0 +1,13 @@
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.csprojAssemblyReference.cache
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.Add_empl.resources
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.Employee.resources
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.Properties.Resources.resources
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.csproj.GenerateResource.cache
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.csproj.CoreCompileInputs.cache
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSADb.mdf
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSADb_log.ldf
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSAQuestionaireApp.exe.config
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSAQuestionaireApp.exe
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSAQuestionaireApp.pdb
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.exe
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.pdb
