@@ -44,15 +44,15 @@ namespace MaintainCities
         {
             fName = txtName.Text;
             fSurname = txtSurname.Text;
-            fDOB = Convert.ToInt32(txtDOB.Text);
+            //fDOB = Convert.ToInt32(txtDOB.Text);
             fStrNo = Convert.ToInt32(txtStrNo.Text);
             fStrName = txtStrName.Text;           
                         
             try
             {
-                SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-PA4SGPS2\SQLEXPRESS;Initial Catalog = spCreateTables; Integrated Security = True");
+                SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-PA4SGPS2\SQLEXPRESS;Initial Catalog = spCreateTables; Integrated Security = True"); //Connection to connect and update the database with the Respondents details
                 conn.Open();
-                SqlCommand SqlInsert = new SqlCommand($"INSERT INTO Respondent VALUES ('"+txtName.Text +"', '"+txtSurname.Text + "','" + Convert.ToInt32(txtDOB.Text) + "','" + Convert.ToInt32(txtStrNo.Text) + "','" + txtStrName.Text + "')", conn); 
+                SqlCommand SqlInsert = new SqlCommand($"INSERT INTO Respondent  VALUES ('"+txtName.Text +"', '"+txtSurname.Text + "','" + this.dateTimePicker1.Text + "','" + Convert.ToInt32(txtStrNo.Text) + "','" + txtStrName.Text + "')", conn); 
                 SqlDataAdapter adap = new SqlDataAdapter();
                 adap.InsertCommand = SqlInsert;
                 adap.InsertCommand.ExecuteNonQuery();
@@ -64,6 +64,16 @@ namespace MaintainCities
             {
                 MessageBox.Show(error.Message);
             }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
