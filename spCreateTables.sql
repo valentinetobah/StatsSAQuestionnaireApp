@@ -5,7 +5,7 @@ GO
 -- =============================================
 -- Author:		Shané Erasmus
 -- Create date: 2021/09/27
--- Description:	CMPG223  create tables stored proc
+-- Description:	CMPG223  Create required tables for StatsSa App Use Cases
 -- =============================================
 
 
@@ -22,7 +22,7 @@ CREATE TABLE Survey (
 CREATE TABLE Questionnaire (
 	QN_ID INT IDENTITY(1,1) PRIMARY KEY,
 	Survey_ID INT FOREIGN KEY REFERENCES Survey(Survey_ID),
-	desription VARCHAR(MAX)
+	Description VARCHAR(MAX)
 )
 
 CREATE TABLE City (
@@ -31,8 +31,8 @@ CREATE TABLE City (
 )
 
 CREATE TABLE District (
-	district_ID INT IDENTITY(1,1) PRIMARY KEY,
-	district_name VARCHAR(MAX)
+	District_ID INT IDENTITY(1,1) PRIMARY KEY,
+	District_name VARCHAR(MAX)
 )
 
 CREATE TABLE Employee (
@@ -55,11 +55,11 @@ CREATE TABLE Respondent (
 CREATE TABLE RespondentQuestionnaire(
 	Resp_ID INT NOT NULL ,
 	QN_ID INT NOT NULL,
-	date_completed DATE,
-	district_ID INT FOREIGN KEY REFERENCES District(district_ID),
+	Date_completed DATE,
+	District_ID INT FOREIGN KEY REFERENCES District(District_ID),
 	Approved_YN VARCHAR(2),
-	approved_by INT FOREIGN KEY REFERENCES Employee(Empl_ID),
-	field_worker INT FOREIGN KEY REFERENCES Employee(Empl_ID),
+	Approved_by INT FOREIGN KEY REFERENCES Employee(Empl_ID),
+	Field_worker INT FOREIGN KEY REFERENCES Employee(Empl_ID),
 	CONSTRAINT PK_RespondentQuestionnaire PRIMARY KEY (Resp_ID,QN_ID)
 )
 
