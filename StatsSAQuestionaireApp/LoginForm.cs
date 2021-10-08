@@ -36,21 +36,29 @@ namespace StatsSAQuestionaireApp
                 connection = new SqlConnection(connectionStr);
                 connection.Open();
 
-                query = $"SELECT * FROM SystemUser WHERE Employee_ID = '{Convert.ToInt32(tbEmployeeID.Text)}' " +
-                    $" AND password = '{tbPassword.Text}'";
-                command = new SqlCommand(query, connection);
-                dataReader = command.ExecuteReader();
+                query = $"SELECT * FROM SystemUser WHERE Employee_ID = '{Convert.ToInt32(tbEmployeeID.Text)}'";
 
-                if (dataReader.HasRows)
+                if (systemUserExists(query, connection, dataReader))
                 {
-                    MainForm mainfrmObject = new MainForm();
-                    mainfrmObject.emp_id = tbEmployeeID.Text;
+                    query = $"SELECT * FROM SystemUser WHERE Employee_ID = '{Convert.ToInt32(tbEmployeeID.Text)}' " +
+                    $" AND password = '{tbPassword.Text}'";
+                    
+                    if (systemUserExists(query, connection, dataReader))
+                    {
+                        MainForm mainfrmObject = new MainForm();
+                        mainfrmObject.emp_id = tbEmployeeID.Text;
 
-                    tbPassword.Text = "";
-                    tbEmployeeID.Text = "";
+                        tbPassword.Text = "";
+                        tbEmployeeID.Text = "";
 
-                    //surveyObject.Show();
-                    mainfrmObject.ShowDialog();
+                        mainfrmObject.ShowDialog();
+                    }
+                    else
+                    {
+                        tbPassword.Text = "";
+                        MessageBox.Show("Invalid Password. Please try again");
+                    }
+                      
                 }
                 else
                 {
@@ -78,10 +86,30 @@ namespace StatsSAQuestionaireApp
 
         }
 
+        private bool systemUserExists(String query, SqlConnection con, SqlDataReader reader)
+        {
+            command = new SqlCommand(query, con);
+            reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                reader.Close();
+                return true;
+            }
+            else
+            {
+                reader.Close();
+                return false;
+            }
+        }
+
         private void LoginForm_Load(object sender, EventArgs e)
         {
             tbPassword.Text = "";
             tbEmployeeID.Text = "";
+            toolTipEmployeeIDTb.SetToolTip(tbEmployeeID, "Please enter a valid Employee ID");
+            toolTipLoginRegisterBtn.SetToolTip(btnLoginRegister, "Click button to Login or Register");
+            toolTipPasswordTb.SetToolTip(tbPassword, "Please enter a valid password");
         }
     }
 }

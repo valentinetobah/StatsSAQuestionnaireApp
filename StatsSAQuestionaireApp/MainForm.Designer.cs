@@ -29,6 +29,7 @@ namespace StatsSAQuestionaireApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbMainForm = new System.Windows.Forms.TabControl();
             this.tpSurveys = new System.Windows.Forms.TabPage();
             this.dgSurveys = new System.Windows.Forms.DataGridView();
@@ -58,8 +59,8 @@ namespace StatsSAQuestionaireApp
             this.label10 = new System.Windows.Forms.Label();
             this.tbQuestionnaireIDToDelete = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBoxSurveyID = new System.Windows.Forms.ComboBox();
             this.btnExitQuestionaires = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cbIsQuestionnaireUpdate = new System.Windows.Forms.CheckBox();
             this.tbQuestionnaireID = new System.Windows.Forms.TextBox();
@@ -71,10 +72,41 @@ namespace StatsSAQuestionaireApp
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tbRespQuestionnaires = new System.Windows.Forms.TabPage();
+            this.comboBoxQuestionnaireIDApprove = new System.Windows.Forms.ComboBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.btnApproveRespQuestionnaire = new System.Windows.Forms.Button();
+            this.dgRespQuestionnaires = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBoxDistrictID = new System.Windows.Forms.ComboBox();
+            this.comboBoxQuestionnaireID = new System.Windows.Forms.ComboBox();
+            this.comboBoxFieldworker = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.dtpCompletedDate = new System.Windows.Forms.DateTimePicker();
+            this.label25 = new System.Windows.Forms.Label();
+            this.comboBoxRespID = new System.Windows.Forms.ComboBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.chbIsRespQuestionnaireUpdate = new System.Windows.Forms.CheckBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btnAddUpdateRespQuestionnaire = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.toolTipApproveBtn = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipDeleteBtn = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipSurveyIDComboBox = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipExitBtn = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipQuestionnaireID = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipQuestionnaireDescTb = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipAddUpdateQnBtn = new System.Windows.Forms.ToolTip(this.components);
+            this.comboBoxRespIDApprove = new System.Windows.Forms.ComboBox();
             this.tbMainForm.SuspendLayout();
             this.tpSurveys.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSurveys)).BeginInit();
@@ -82,13 +114,16 @@ namespace StatsSAQuestionaireApp
             this.tbQuestionnaires.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgQuestionnaires)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.tbRespQuestionnaires.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRespQuestionnaires)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbMainForm
             // 
             this.tbMainForm.Controls.Add(this.tpSurveys);
             this.tbMainForm.Controls.Add(this.tbQuestionnaires);
-            this.tbMainForm.Controls.Add(this.tabPage5);
+            this.tbMainForm.Controls.Add(this.tbRespQuestionnaires);
             this.tbMainForm.Controls.Add(this.tabPage6);
             this.tbMainForm.Controls.Add(this.tabPage7);
             this.tbMainForm.Controls.Add(this.tabPage8);
@@ -114,7 +149,7 @@ namespace StatsSAQuestionaireApp
             this.tpSurveys.Location = new System.Drawing.Point(4, 22);
             this.tpSurveys.Name = "tpSurveys";
             this.tpSurveys.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSurveys.Size = new System.Drawing.Size(822, 566);
+            this.tpSurveys.Size = new System.Drawing.Size(821, 566);
             this.tpSurveys.TabIndex = 0;
             this.tpSurveys.Text = "Surveys";
             this.tpSurveys.UseVisualStyleBackColor = true;
@@ -132,7 +167,7 @@ namespace StatsSAQuestionaireApp
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(535, 73);
+            this.label7.Location = new System.Drawing.Point(535, 89);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(241, 13);
             this.label7.TabIndex = 18;
@@ -215,7 +250,7 @@ namespace StatsSAQuestionaireApp
             // 
             // btnAddUpdateSurvey
             // 
-            this.btnAddUpdateSurvey.Location = new System.Drawing.Point(108, 178);
+            this.btnAddUpdateSurvey.Location = new System.Drawing.Point(154, 178);
             this.btnAddUpdateSurvey.Name = "btnAddUpdateSurvey";
             this.btnAddUpdateSurvey.Size = new System.Drawing.Size(199, 51);
             this.btnAddUpdateSurvey.TabIndex = 6;
@@ -354,7 +389,7 @@ namespace StatsSAQuestionaireApp
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(510, 73);
+            this.label9.Location = new System.Drawing.Point(510, 89);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(293, 13);
             this.label9.TabIndex = 28;
@@ -364,7 +399,7 @@ namespace StatsSAQuestionaireApp
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(536, 127);
+            this.label10.Location = new System.Drawing.Point(510, 127);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(106, 13);
             this.label10.TabIndex = 26;
@@ -372,15 +407,15 @@ namespace StatsSAQuestionaireApp
             // 
             // tbQuestionnaireIDToDelete
             // 
-            this.tbQuestionnaireIDToDelete.Location = new System.Drawing.Point(648, 124);
+            this.tbQuestionnaireIDToDelete.Location = new System.Drawing.Point(627, 124);
             this.tbQuestionnaireIDToDelete.Name = "tbQuestionnaireIDToDelete";
-            this.tbQuestionnaireIDToDelete.Size = new System.Drawing.Size(155, 20);
+            this.tbQuestionnaireIDToDelete.Size = new System.Drawing.Size(176, 20);
             this.tbQuestionnaireIDToDelete.TabIndex = 27;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBoxSurveyID);
             this.groupBox2.Controls.Add(this.btnExitQuestionaires);
-            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.cbIsQuestionnaireUpdate);
             this.groupBox2.Controls.Add(this.tbQuestionnaireID);
@@ -396,22 +431,23 @@ namespace StatsSAQuestionaireApp
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ADD NEW QUESTIONNAIRE OR UPDATE EXISTING QUESTIONNAIRE";
             // 
+            // comboBoxSurveyID
+            // 
+            this.comboBoxSurveyID.FormattingEnabled = true;
+            this.comboBoxSurveyID.Location = new System.Drawing.Point(456, 81);
+            this.comboBoxSurveyID.Name = "comboBoxSurveyID";
+            this.comboBoxSurveyID.Size = new System.Drawing.Size(257, 21);
+            this.comboBoxSurveyID.TabIndex = 13;
+            // 
             // btnExitQuestionaires
             // 
             this.btnExitQuestionaires.Location = new System.Drawing.Point(524, 164);
             this.btnExitQuestionaires.Name = "btnExitQuestionaires";
-            this.btnExitQuestionaires.Size = new System.Drawing.Size(199, 51);
+            this.btnExitQuestionaires.Size = new System.Drawing.Size(189, 51);
             this.btnExitQuestionaires.TabIndex = 12;
             this.btnExitQuestionaires.Text = "Exit";
             this.btnExitQuestionaires.UseVisualStyleBackColor = true;
             this.btnExitQuestionaires.Click += new System.EventHandler(this.btnExitQuestionaires_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(466, 82);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 20);
-            this.textBox1.TabIndex = 11;
             // 
             // label13
             // 
@@ -457,6 +493,7 @@ namespace StatsSAQuestionaireApp
             this.btnAddUpdateQuestionnaire.TabIndex = 6;
             this.btnAddUpdateQuestionnaire.Text = "Add New/Update Existing";
             this.btnAddUpdateQuestionnaire.UseVisualStyleBackColor = true;
+            this.btnAddUpdateQuestionnaire.Click += new System.EventHandler(this.btnAddUpdateQuestionnaire_Click);
             // 
             // tbQuestionnaireDesc
             // 
@@ -477,12 +514,13 @@ namespace StatsSAQuestionaireApp
             // btnDeleteQuestionnaire
             // 
             this.btnDeleteQuestionnaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteQuestionnaire.Location = new System.Drawing.Point(728, 161);
+            this.btnDeleteQuestionnaire.Location = new System.Drawing.Point(728, 163);
             this.btnDeleteQuestionnaire.Name = "btnDeleteQuestionnaire";
-            this.btnDeleteQuestionnaire.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteQuestionnaire.Size = new System.Drawing.Size(75, 42);
             this.btnDeleteQuestionnaire.TabIndex = 24;
             this.btnDeleteQuestionnaire.Text = "Delete";
             this.btnDeleteQuestionnaire.UseVisualStyleBackColor = true;
+            this.btnDeleteQuestionnaire.Click += new System.EventHandler(this.btnDeleteQuestionnaire_Click);
             // 
             // label15
             // 
@@ -514,22 +552,258 @@ namespace StatsSAQuestionaireApp
             this.label17.TabIndex = 20;
             this.label17.Text = "LIST OF AVAILABLE QUESTIONNAIRES";
             // 
-            // tabPage5
+            // tbRespQuestionnaires
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(822, 566);
-            this.tabPage5.TabIndex = 2;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tbRespQuestionnaires.Controls.Add(this.comboBoxRespIDApprove);
+            this.tbRespQuestionnaires.Controls.Add(this.comboBoxQuestionnaireIDApprove);
+            this.tbRespQuestionnaires.Controls.Add(this.label28);
+            this.tbRespQuestionnaires.Controls.Add(this.btnApproveRespQuestionnaire);
+            this.tbRespQuestionnaires.Controls.Add(this.dgRespQuestionnaires);
+            this.tbRespQuestionnaires.Controls.Add(this.label12);
+            this.tbRespQuestionnaires.Controls.Add(this.label18);
+            this.tbRespQuestionnaires.Controls.Add(this.groupBox3);
+            this.tbRespQuestionnaires.Controls.Add(this.label22);
+            this.tbRespQuestionnaires.Controls.Add(this.label23);
+            this.tbRespQuestionnaires.Controls.Add(this.label24);
+            this.tbRespQuestionnaires.Location = new System.Drawing.Point(4, 22);
+            this.tbRespQuestionnaires.Name = "tbRespQuestionnaires";
+            this.tbRespQuestionnaires.Padding = new System.Windows.Forms.Padding(3);
+            this.tbRespQuestionnaires.Size = new System.Drawing.Size(821, 566);
+            this.tbRespQuestionnaires.TabIndex = 2;
+            this.tbRespQuestionnaires.Text = "Respondent Questionnaires";
+            this.tbRespQuestionnaires.UseVisualStyleBackColor = true;
+            this.tbRespQuestionnaires.Click += new System.EventHandler(this.tbRespQuestionnaires_Click);
+            // 
+            // comboBoxQuestionnaireIDApprove
+            // 
+            this.comboBoxQuestionnaireIDApprove.FormattingEnabled = true;
+            this.comboBoxQuestionnaireIDApprove.Location = new System.Drawing.Point(606, 393);
+            this.comboBoxQuestionnaireIDApprove.Name = "comboBoxQuestionnaireIDApprove";
+            this.comboBoxQuestionnaireIDApprove.Size = new System.Drawing.Size(183, 21);
+            this.comboBoxQuestionnaireIDApprove.TabIndex = 43;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(493, 359);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(96, 13);
+            this.label28.TabIndex = 41;
+            this.label28.Text = "Respondent ID:";
+            // 
+            // btnApproveRespQuestionnaire
+            // 
+            this.btnApproveRespQuestionnaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApproveRespQuestionnaire.Location = new System.Drawing.Point(694, 432);
+            this.btnApproveRespQuestionnaire.Name = "btnApproveRespQuestionnaire";
+            this.btnApproveRespQuestionnaire.Size = new System.Drawing.Size(95, 42);
+            this.btnApproveRespQuestionnaire.TabIndex = 40;
+            this.btnApproveRespQuestionnaire.Text = "Approve Questionnaire";
+            this.btnApproveRespQuestionnaire.UseVisualStyleBackColor = true;
+            this.btnApproveRespQuestionnaire.Click += new System.EventHandler(this.btnApproveRespQuestionnaire_Click);
+            // 
+            // dgRespQuestionnaires
+            // 
+            this.dgRespQuestionnaires.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgRespQuestionnaires.Location = new System.Drawing.Point(27, 89);
+            this.dgRespQuestionnaires.Name = "dgRespQuestionnaires";
+            this.dgRespQuestionnaires.Size = new System.Drawing.Size(770, 199);
+            this.dgRespQuestionnaires.TabIndex = 39;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(496, 314);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(293, 34);
+            this.label12.TabIndex = 38;
+            this.label12.Text = "ENTER RESPONDENT ID AND SELECT\r\nRESPONDENT ID BELOW TO DELETE";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(493, 396);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(106, 13);
+            this.label18.TabIndex = 36;
+            this.label18.Text = "Questionnaire ID:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.comboBoxDistrictID);
+            this.groupBox3.Controls.Add(this.comboBoxQuestionnaireID);
+            this.groupBox3.Controls.Add(this.comboBoxFieldworker);
+            this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Controls.Add(this.dtpCompletedDate);
+            this.groupBox3.Controls.Add(this.label25);
+            this.groupBox3.Controls.Add(this.comboBoxRespID);
+            this.groupBox3.Controls.Add(this.btnExit);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.chbIsRespQuestionnaireUpdate);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.btnAddUpdateRespQuestionnaire);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(27, 307);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(442, 235);
+            this.groupBox3.TabIndex = 35;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ADD NEW OR UPDATE EXISTING RESPONDENT QUESTIONNAIRE";
+            // 
+            // comboBoxDistrictID
+            // 
+            this.comboBoxDistrictID.FormattingEnabled = true;
+            this.comboBoxDistrictID.Location = new System.Drawing.Point(118, 104);
+            this.comboBoxDistrictID.Name = "comboBoxDistrictID";
+            this.comboBoxDistrictID.Size = new System.Drawing.Size(289, 21);
+            this.comboBoxDistrictID.TabIndex = 21;
+            // 
+            // comboBoxQuestionnaireID
+            // 
+            this.comboBoxQuestionnaireID.FormattingEnabled = true;
+            this.comboBoxQuestionnaireID.Location = new System.Drawing.Point(118, 72);
+            this.comboBoxQuestionnaireID.Name = "comboBoxQuestionnaireID";
+            this.comboBoxQuestionnaireID.Size = new System.Drawing.Size(289, 21);
+            this.comboBoxQuestionnaireID.TabIndex = 20;
+            // 
+            // comboBoxFieldworker
+            // 
+            this.comboBoxFieldworker.FormattingEnabled = true;
+            this.comboBoxFieldworker.Location = new System.Drawing.Point(118, 160);
+            this.comboBoxFieldworker.Name = "comboBoxFieldworker";
+            this.comboBoxFieldworker.Size = new System.Drawing.Size(289, 21);
+            this.comboBoxFieldworker.TabIndex = 19;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(19, 160);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(76, 13);
+            this.label26.TabIndex = 18;
+            this.label26.Text = "Fieldworker:";
+            // 
+            // dtpCompletedDate
+            // 
+            this.dtpCompletedDate.Location = new System.Drawing.Point(118, 134);
+            this.dtpCompletedDate.Name = "dtpCompletedDate";
+            this.dtpCompletedDate.Size = new System.Drawing.Size(289, 20);
+            this.dtpCompletedDate.TabIndex = 15;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(16, 134);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(101, 13);
+            this.label25.TabIndex = 14;
+            this.label25.Text = "Completed Date:";
+            // 
+            // comboBoxRespID
+            // 
+            this.comboBoxRespID.FormattingEnabled = true;
+            this.comboBoxRespID.Location = new System.Drawing.Point(118, 42);
+            this.comboBoxRespID.Name = "comboBoxRespID";
+            this.comboBoxRespID.Size = new System.Drawing.Size(289, 21);
+            this.comboBoxRespID.TabIndex = 13;
+            this.comboBoxRespID.SelectedIndexChanged += new System.EventHandler(this.comboBoxRespID_SelectedIndexChanged);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(345, 203);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(62, 26);
+            this.btnExit.TabIndex = 12;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(16, 45);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(96, 13);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "Respondent ID:";
+            // 
+            // chbIsRespQuestionnaireUpdate
+            // 
+            this.chbIsRespQuestionnaireUpdate.AutoSize = true;
+            this.chbIsRespQuestionnaireUpdate.Location = new System.Drawing.Point(118, 19);
+            this.chbIsRespQuestionnaireUpdate.Name = "chbIsRespQuestionnaireUpdate";
+            this.chbIsRespQuestionnaireUpdate.Size = new System.Drawing.Size(303, 17);
+            this.chbIsRespQuestionnaireUpdate.TabIndex = 9;
+            this.chbIsRespQuestionnaireUpdate.Text = "Updating an existing Respondent Questionnaire?";
+            this.chbIsRespQuestionnaireUpdate.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(16, 75);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(106, 13);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "Questionnaire ID:";
+            // 
+            // btnAddUpdateRespQuestionnaire
+            // 
+            this.btnAddUpdateRespQuestionnaire.Location = new System.Drawing.Point(118, 203);
+            this.btnAddUpdateRespQuestionnaire.Name = "btnAddUpdateRespQuestionnaire";
+            this.btnAddUpdateRespQuestionnaire.Size = new System.Drawing.Size(166, 26);
+            this.btnAddUpdateRespQuestionnaire.TabIndex = 6;
+            this.btnAddUpdateRespQuestionnaire.Text = "Add New/Update Existing";
+            this.btnAddUpdateRespQuestionnaire.UseVisualStyleBackColor = true;
+            this.btnAddUpdateRespQuestionnaire.Click += new System.EventHandler(this.btnAddUpdateRespQuestionnaire_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(16, 107);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(68, 13);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "District ID:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(27, 24);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(50, 17);
+            this.label22.TabIndex = 33;
+            this.label22.Text = "Hello,";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(79, 24);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(78, 17);
+            this.label23.TabIndex = 32;
+            this.label23.Text = "{lblName}";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(27, 73);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(327, 13);
+            this.label24.TabIndex = 31;
+            this.label24.Text = "LIST OF AVAILABLE RESPONDENT QUESTIONNAIRES";
             // 
             // tabPage6
             // 
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(822, 566);
+            this.tabPage6.Size = new System.Drawing.Size(821, 566);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -539,7 +813,7 @@ namespace StatsSAQuestionaireApp
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(822, 566);
+            this.tabPage7.Size = new System.Drawing.Size(821, 566);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -549,10 +823,19 @@ namespace StatsSAQuestionaireApp
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(822, 566);
+            this.tabPage8.Size = new System.Drawing.Size(821, 566);
             this.tabPage8.TabIndex = 5;
             this.tabPage8.Text = "tabPage8";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxRespIDApprove
+            // 
+            this.comboBoxRespIDApprove.FormattingEnabled = true;
+            this.comboBoxRespIDApprove.Location = new System.Drawing.Point(606, 356);
+            this.comboBoxRespIDApprove.Name = "comboBoxRespIDApprove";
+            this.comboBoxRespIDApprove.Size = new System.Drawing.Size(183, 21);
+            this.comboBoxRespIDApprove.TabIndex = 44;
+            this.comboBoxRespIDApprove.SelectedIndexChanged += new System.EventHandler(this.comboBoxRespIDApprove_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -574,6 +857,11 @@ namespace StatsSAQuestionaireApp
             ((System.ComponentModel.ISupportInitialize)(this.dgQuestionnaires)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tbRespQuestionnaires.ResumeLayout(false);
+            this.tbRespQuestionnaires.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRespQuestionnaires)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -583,7 +871,7 @@ namespace StatsSAQuestionaireApp
         private System.Windows.Forms.TabControl tbMainForm;
         private System.Windows.Forms.TabPage tpSurveys;
         private System.Windows.Forms.TabPage tbQuestionnaires;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tbRespQuestionnaires;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
@@ -612,7 +900,6 @@ namespace StatsSAQuestionaireApp
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbQuestionnaireIDToDelete;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckBox cbIsQuestionnaireUpdate;
         private System.Windows.Forms.TextBox tbQuestionnaireID;
@@ -626,5 +913,37 @@ namespace StatsSAQuestionaireApp
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnExitSurvey;
         private System.Windows.Forms.Button btnExitQuestionaires;
+        private System.Windows.Forms.ComboBox comboBoxSurveyID;
+        private System.Windows.Forms.ToolTip toolTipApproveBtn;
+        private System.Windows.Forms.ToolTip toolTipDeleteBtn;
+        private System.Windows.Forms.ToolTip toolTipSurveyIDComboBox;
+        private System.Windows.Forms.ToolTip toolTipExitBtn;
+        private System.Windows.Forms.ToolTip toolTipQuestionnaireID;
+        private System.Windows.Forms.ToolTip toolTipQuestionnaireDescTb;
+        private System.Windows.Forms.ToolTip toolTipAddUpdateQnBtn;
+        private System.Windows.Forms.Button btnApproveRespQuestionnaire;
+        private System.Windows.Forms.DataGridView dgRespQuestionnaires;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DateTimePicker dtpCompletedDate;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ComboBox comboBoxRespID;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.CheckBox chbIsRespQuestionnaireUpdate;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button btnAddUpdateRespQuestionnaire;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox comboBoxDistrictID;
+        private System.Windows.Forms.ComboBox comboBoxQuestionnaireID;
+        private System.Windows.Forms.ComboBox comboBoxFieldworker;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ComboBox comboBoxQuestionnaireIDApprove;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox comboBoxRespIDApprove;
     }
 }
