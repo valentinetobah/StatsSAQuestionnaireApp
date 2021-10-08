@@ -29,12 +29,16 @@ namespace StatsSAQuestionaireApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbEmployeeID = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLoginRegister = new System.Windows.Forms.Button();
+            this.toolTipEmployeeIDTb = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipPasswordTb = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipLoginRegisterBtn = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -122,5 +126,8 @@ namespace StatsSAQuestionaireApp
         private System.Windows.Forms.TextBox tbEmployeeID;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLoginRegister;
+        private System.Windows.Forms.ToolTip toolTipEmployeeIDTb;
+        private System.Windows.Forms.ToolTip toolTipPasswordTb;
+        private System.Windows.Forms.ToolTip toolTipLoginRegisterBtn;
     }
 }
