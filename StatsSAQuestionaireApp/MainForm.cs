@@ -201,19 +201,20 @@ namespace StatsSAQuestionaireApp
 
             string selectedType = Type_empl.SelectedItem.ToString();
 
-            if (string.Compare(selectedType,"Supervisor") == 1)
+
+            if (selectedType == "Supervisor")
             {
                 selectedType = "S";
             }
-            else if (string.Compare(selectedType, "Manager") == 1)
+            else if (selectedType == "Manager")
             {
                 selectedType = "M";
             }
-            else if (string.Compare(selectedType, "DistrictManager") == 1)
+            else if (selectedType == "DistrictManager")
             {
                 selectedType = "DM";
             }
-            else if (string.Compare(selectedType, "FieldWorker") == 1)
+            else if (selectedType == "FieldWorker")
             {
                 selectedType = "F";
             }
@@ -249,22 +250,24 @@ namespace StatsSAQuestionaireApp
 
             string selectedType = Type_empl.SelectedItem.ToString();
 
-            if (string.Compare(selectedType, "Supervisor") == 1)
+
+            if (selectedType == "Supervisor")
             {
                 selectedType = "S";
             }
-            else if (string.Compare(selectedType, "Manager") == 1)
+            else if (selectedType == "Manager")
             {
                 selectedType = "M";
             }
-            else if (string.Compare(selectedType, "DistrictManager") == 1)
+            else if (selectedType == "DistrictManager")
             {
                 selectedType = "DM";
             }
-            else if (string.Compare(selectedType, "FieldWorker") == 1)
+            else if (selectedType == "FieldWorker")
             {
                 selectedType = "F";
             }
+
 
             string updateQuery = $"Update Employee SET Name = '{tbName.Text}', " +
                    $"LastName = '{tbLastname.Text}', Type_empl ='{selectedType}'" +
