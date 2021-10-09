@@ -71,7 +71,27 @@ namespace StatsSAQuestionaireApp
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tpEmployee = new System.Windows.Forms.TabPage();
+            this.dgEmployee = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tbEmplDtoDelete = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Type_empl = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.ExxitEmployee = new System.Windows.Forms.Button();
+            this.tbLastname = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.update_Employee_cb = new System.Windows.Forms.CheckBox();
+            this.tbEmplIDToUpdate = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btnAddUpdateEmployee = new System.Windows.Forms.Button();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btn_DeleteEmployee = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -82,13 +102,16 @@ namespace StatsSAQuestionaireApp
             this.tbQuestionnaires.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgQuestionnaires)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.tpEmployee.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEmployee)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbMainForm
             // 
             this.tbMainForm.Controls.Add(this.tpSurveys);
             this.tbMainForm.Controls.Add(this.tbQuestionnaires);
-            this.tbMainForm.Controls.Add(this.tabPage5);
+            this.tbMainForm.Controls.Add(this.tpEmployee);
             this.tbMainForm.Controls.Add(this.tabPage6);
             this.tbMainForm.Controls.Add(this.tabPage7);
             this.tbMainForm.Controls.Add(this.tabPage8);
@@ -114,7 +137,7 @@ namespace StatsSAQuestionaireApp
             this.tpSurveys.Location = new System.Drawing.Point(4, 22);
             this.tpSurveys.Name = "tpSurveys";
             this.tpSurveys.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSurveys.Size = new System.Drawing.Size(822, 566);
+            this.tpSurveys.Size = new System.Drawing.Size(821, 566);
             this.tpSurveys.TabIndex = 0;
             this.tpSurveys.Text = "Surveys";
             this.tpSurveys.UseVisualStyleBackColor = true;
@@ -127,6 +150,7 @@ namespace StatsSAQuestionaireApp
             this.dgSurveys.Name = "dgSurveys";
             this.dgSurveys.Size = new System.Drawing.Size(442, 199);
             this.dgSurveys.TabIndex = 19;
+            this.dgSurveys.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSurveys_CellContentClick);
             // 
             // label7
             // 
@@ -514,22 +538,231 @@ namespace StatsSAQuestionaireApp
             this.label17.TabIndex = 20;
             this.label17.Text = "LIST OF AVAILABLE QUESTIONNAIRES";
             // 
-            // tabPage5
+            // tpEmployee
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(822, 566);
-            this.tabPage5.TabIndex = 2;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tpEmployee.Controls.Add(this.dgEmployee);
+            this.tpEmployee.Controls.Add(this.label12);
+            this.tpEmployee.Controls.Add(this.label18);
+            this.tpEmployee.Controls.Add(this.tbEmplDtoDelete);
+            this.tpEmployee.Controls.Add(this.groupBox3);
+            this.tpEmployee.Controls.Add(this.btn_DeleteEmployee);
+            this.tpEmployee.Controls.Add(this.label22);
+            this.tpEmployee.Controls.Add(this.label23);
+            this.tpEmployee.Controls.Add(this.label24);
+            this.tpEmployee.Location = new System.Drawing.Point(4, 22);
+            this.tpEmployee.Name = "tpEmployee";
+            this.tpEmployee.Padding = new System.Windows.Forms.Padding(3);
+            this.tpEmployee.Size = new System.Drawing.Size(821, 566);
+            this.tpEmployee.TabIndex = 2;
+            this.tpEmployee.Text = "Employee";
+            this.tpEmployee.UseVisualStyleBackColor = true;
+            // 
+            // dgEmployee
+            // 
+            this.dgEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgEmployee.Location = new System.Drawing.Point(27, 89);
+            this.dgEmployee.Name = "dgEmployee";
+            this.dgEmployee.Size = new System.Drawing.Size(442, 199);
+            this.dgEmployee.TabIndex = 38;
+            this.dgEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(500, 73);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(213, 13);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "ENTER EMPLOYEE ID TO REMOVE";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(526, 127);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(82, 13);
+            this.label18.TabIndex = 35;
+            this.label18.Text = "Employee ID:";
+            // 
+            // tbEmplDtoDelete
+            // 
+            this.tbEmplDtoDelete.Location = new System.Drawing.Point(638, 124);
+            this.tbEmplDtoDelete.Name = "tbEmplDtoDelete";
+            this.tbEmplDtoDelete.Size = new System.Drawing.Size(155, 20);
+            this.tbEmplDtoDelete.TabIndex = 36;
+            this.tbEmplDtoDelete.TextChanged += new System.EventHandler(this.tbEmplToUpdatte_TextChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.Type_empl);
+            this.groupBox3.Controls.Add(this.label25);
+            this.groupBox3.Controls.Add(this.ExxitEmployee);
+            this.groupBox3.Controls.Add(this.tbLastname);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.update_Employee_cb);
+            this.groupBox3.Controls.Add(this.tbEmplIDToUpdate);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.btnAddUpdateEmployee);
+            this.groupBox3.Controls.Add(this.tbName);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(27, 307);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(749, 235);
+            this.groupBox3.TabIndex = 34;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ADD NEW EMPLOYEE OR UPDATE EXISTING EMPLOYEE";
+            // 
+            // Type_empl
+            // 
+            this.Type_empl.FormattingEnabled = true;
+            this.Type_empl.Items.AddRange(new object[] {
+            "Field worker",
+            "Supervisor",
+            "Manager",
+            "District Manager"});
+            this.Type_empl.Location = new System.Drawing.Point(498, 123);
+            this.Type_empl.Name = "Type_empl";
+            this.Type_empl.Size = new System.Drawing.Size(245, 21);
+            this.Type_empl.TabIndex = 14;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(359, 126);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(108, 13);
+            this.label25.TabIndex = 13;
+            this.label25.Text = "Type of Employee";
+            // 
+            // ExxitEmployee
+            // 
+            this.ExxitEmployee.Location = new System.Drawing.Point(524, 164);
+            this.ExxitEmployee.Name = "ExxitEmployee";
+            this.ExxitEmployee.Size = new System.Drawing.Size(199, 51);
+            this.ExxitEmployee.TabIndex = 12;
+            this.ExxitEmployee.Text = "Exit";
+            this.ExxitEmployee.UseVisualStyleBackColor = true;
+            this.ExxitEmployee.Click += new System.EventHandler(this.ExxitEmployee_Click);
+            // 
+            // tbLastname
+            // 
+            this.tbLastname.Location = new System.Drawing.Point(498, 82);
+            this.tbLastname.Name = "tbLastname";
+            this.tbLastname.Size = new System.Drawing.Size(245, 20);
+            this.tbLastname.TabIndex = 11;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(374, 85);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(67, 13);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "Last Name";
+            // 
+            // update_Employee_cb
+            // 
+            this.update_Employee_cb.AutoSize = true;
+            this.update_Employee_cb.Location = new System.Drawing.Point(128, 40);
+            this.update_Employee_cb.Name = "update_Employee_cb";
+            this.update_Employee_cb.Size = new System.Drawing.Size(206, 17);
+            this.update_Employee_cb.TabIndex = 9;
+            this.update_Employee_cb.Text = "Updating an existing employee?";
+            this.update_Employee_cb.UseVisualStyleBackColor = true;
+            // 
+            // tbEmplIDToUpdate
+            // 
+            this.tbEmplIDToUpdate.Location = new System.Drawing.Point(128, 86);
+            this.tbEmplIDToUpdate.Name = "tbEmplIDToUpdate";
+            this.tbEmplIDToUpdate.Size = new System.Drawing.Size(225, 20);
+            this.tbEmplIDToUpdate.TabIndex = 8;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(16, 89);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(82, 13);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "Employee ID:";
+            // 
+            // btnAddUpdateEmployee
+            // 
+            this.btnAddUpdateEmployee.Location = new System.Drawing.Point(128, 164);
+            this.btnAddUpdateEmployee.Name = "btnAddUpdateEmployee";
+            this.btnAddUpdateEmployee.Size = new System.Drawing.Size(199, 51);
+            this.btnAddUpdateEmployee.TabIndex = 6;
+            this.btnAddUpdateEmployee.Text = "Add New/Update Existing";
+            this.btnAddUpdateEmployee.UseVisualStyleBackColor = true;
+            this.btnAddUpdateEmployee.Click += new System.EventHandler(this.btnAddUpdateEmployee_Click);
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(128, 123);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(225, 20);
+            this.tbName.TabIndex = 3;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(16, 123);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(39, 13);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Name";
+            this.label21.Click += new System.EventHandler(this.label21_Click);
+            // 
+            // btn_DeleteEmployee
+            // 
+            this.btn_DeleteEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DeleteEmployee.Location = new System.Drawing.Point(718, 161);
+            this.btn_DeleteEmployee.Name = "btn_DeleteEmployee";
+            this.btn_DeleteEmployee.Size = new System.Drawing.Size(75, 23);
+            this.btn_DeleteEmployee.TabIndex = 33;
+            this.btn_DeleteEmployee.Text = "Delete";
+            this.btn_DeleteEmployee.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(27, 24);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(50, 17);
+            this.label22.TabIndex = 32;
+            this.label22.Text = "Hello,";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(79, 24);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(78, 17);
+            this.label23.TabIndex = 31;
+            this.label23.Text = "{lblName}";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(27, 73);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(196, 13);
+            this.label24.TabIndex = 30;
+            this.label24.Text = "LIST OF CURRENT EMPLOYEES";
+            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // tabPage6
             // 
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(822, 566);
+            this.tabPage6.Size = new System.Drawing.Size(821, 566);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -539,7 +772,7 @@ namespace StatsSAQuestionaireApp
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(822, 566);
+            this.tabPage7.Size = new System.Drawing.Size(821, 566);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -549,7 +782,7 @@ namespace StatsSAQuestionaireApp
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(822, 566);
+            this.tabPage8.Size = new System.Drawing.Size(821, 566);
             this.tabPage8.TabIndex = 5;
             this.tabPage8.Text = "tabPage8";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -574,6 +807,11 @@ namespace StatsSAQuestionaireApp
             ((System.ComponentModel.ISupportInitialize)(this.dgQuestionnaires)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tpEmployee.ResumeLayout(false);
+            this.tpEmployee.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEmployee)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -583,7 +821,7 @@ namespace StatsSAQuestionaireApp
         private System.Windows.Forms.TabControl tbMainForm;
         private System.Windows.Forms.TabPage tpSurveys;
         private System.Windows.Forms.TabPage tbQuestionnaires;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tpEmployee;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
@@ -626,5 +864,25 @@ namespace StatsSAQuestionaireApp
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnExitSurvey;
         private System.Windows.Forms.Button btnExitQuestionaires;
+        private System.Windows.Forms.DataGridView dgEmployee;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox tbEmplDtoDelete;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button ExxitEmployee;
+        private System.Windows.Forms.TextBox tbLastname;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.CheckBox update_Employee_cb;
+        private System.Windows.Forms.TextBox tbEmplIDToUpdate;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button btnAddUpdateEmployee;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btn_DeleteEmployee;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox Type_empl;
+        private System.Windows.Forms.Label label25;
     }
 }
