@@ -619,14 +619,15 @@ namespace StatsSAQuestionaireApp
             // 
             this.Type_empl.FormattingEnabled = true;
             this.Type_empl.Items.AddRange(new object[] {
-            "Field worker",
+            "FieldWorker",
             "Supervisor",
             "Manager",
-            "District Manager"});
+            "DistrictManager"});
             this.Type_empl.Location = new System.Drawing.Point(498, 123);
             this.Type_empl.Name = "Type_empl";
             this.Type_empl.Size = new System.Drawing.Size(245, 21);
             this.Type_empl.TabIndex = 14;
+            this.Type_empl.SelectedIndexChanged += new System.EventHandler(this.Type_empl_SelectedIndexChanged);
             // 
             // label25
             // 
@@ -672,6 +673,7 @@ namespace StatsSAQuestionaireApp
             this.update_Employee_cb.TabIndex = 9;
             this.update_Employee_cb.Text = "Updating an existing employee?";
             this.update_Employee_cb.UseVisualStyleBackColor = true;
+            this.update_Employee_cb.CheckedChanged += new System.EventHandler(this.update_Employee_cb_CheckedChanged_1);
             // 
             // tbEmplIDToUpdate
             // 
@@ -725,6 +727,7 @@ namespace StatsSAQuestionaireApp
             this.btn_DeleteEmployee.TabIndex = 33;
             this.btn_DeleteEmployee.Text = "Delete";
             this.btn_DeleteEmployee.UseVisualStyleBackColor = true;
+            this.btn_DeleteEmployee.Click += new System.EventHandler(this.btn_DeleteEmployee_Click_1);
             // 
             // label22
             // 

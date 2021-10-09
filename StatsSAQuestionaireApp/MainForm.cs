@@ -197,24 +197,28 @@ namespace StatsSAQuestionaireApp
         //INSERT RECORD TO EMPLOYEE TABLE
         private DialogResult insertNewEmployee(SqlDataAdapter adapter, SqlConnection con)
         {
-            String selectedType = Type_empl.SelectedText;
-            if(selectedType == "Supervisor")
+
+
+            string selectedType = Type_empl.SelectedItem.ToString();
+
+            if (string.Compare(selectedType,"Supervisor") == 1)
             {
                 selectedType = "S";
             }
-            else if (selectedType == "Manager")
+            else if (string.Compare(selectedType, "Manager") == 1)
             {
                 selectedType = "M";
             }
-            else if (selectedType == "DistrictManager")
+            else if (string.Compare(selectedType, "DistrictManager") == 1)
             {
                 selectedType = "DM";
             }
-            else if (selectedType == "FieldWorker")
+            else if (string.Compare(selectedType, "FieldWorker") == 1)
             {
                 selectedType = "F";
             }
-            string insertQuery = $"INSERT INTO Employee (Name, LastName, Type_empl) VALUES ('{tbName.Text}','{tbLastname.Text}','{selectedType.ToString()}')";
+
+            string insertQuery = $"INSERT INTO Employee (Name, LastName, Type_empl) VALUES ('{tbName.Text}','{tbLastname.Text}','{selectedType}')";
 
             command = new SqlCommand(insertQuery, con);
             adapter.InsertCommand = command;
@@ -243,26 +247,27 @@ namespace StatsSAQuestionaireApp
         private DialogResult updateExistingEmplyee(SqlDataAdapter adapter, SqlConnection con)
         {
 
-            String selectedType = Type_empl.SelectedText;
-            if (selectedType == "Supervisor")
+            string selectedType = Type_empl.SelectedItem.ToString();
+
+            if (string.Compare(selectedType, "Supervisor") == 1)
             {
                 selectedType = "S";
             }
-            else if (selectedType == "Manager")
+            else if (string.Compare(selectedType, "Manager") == 1)
             {
                 selectedType = "M";
             }
-            else if (selectedType == "DistrictManager")
+            else if (string.Compare(selectedType, "DistrictManager") == 1)
             {
                 selectedType = "DM";
             }
-            else if (selectedType == "FieldWorker")
+            else if (string.Compare(selectedType, "FieldWorker") == 1)
             {
                 selectedType = "F";
             }
 
             string updateQuery = $"Update Employee SET Name = '{tbName.Text}', " +
-                   $"LastName = '{tbLastname.Text}', Type_empl ='{selectedType.ToString()}'" +
+                   $"LastName = '{tbLastname.Text}', Type_empl ='{selectedType}'" +
                    $"WHERE Empl_ID = '{Convert.ToInt32(tbEmplIDToUpdate.Text)}'";
 
             command = new SqlCommand(updateQuery, con);
@@ -272,6 +277,7 @@ namespace StatsSAQuestionaireApp
             return MessageBox.Show("Employee with ID: " + tbEmplIDToUpdate.Text
                 + " Sucessfully Updated !!!!");
         }
+
 
         //DELETE EXISTING SURVEY RECORD
         private void btnDeleteSurvey_Click_1(object sender, EventArgs e)
@@ -316,7 +322,8 @@ namespace StatsSAQuestionaireApp
                 adapter = new SqlDataAdapter();
 
                 int empl_id = Convert.ToInt32(tbEmplDtoDelete.Text);
-                command = new SqlCommand($"DELETE FROM Employee WHERE Empl_ID = {empl_id}", connection);
+                string deleteQuery = $"DELETE FROM Employee WHERE Empl_ID = {empl_id}";
+                command = new SqlCommand(deleteQuery, connection);
                 adapter.DeleteCommand = command;
                 adapter.DeleteCommand.ExecuteNonQuery();
 
@@ -377,7 +384,7 @@ namespace StatsSAQuestionaireApp
             tbEmplIDToUpdate.Text = "";
             tbName.Text = "";
             tbLastname.Text = "";
-            //Type_empl.SelectedItem = "";
+            Type_empl.SelectedItem = "";
 
             if (!update_Employee_cb.Checked)
             {
@@ -463,20 +470,6 @@ namespace StatsSAQuestionaireApp
         }
 
 
-        //CHECK IF EMPLOYEES UPDATE CHECKBOX IS CHECKED
-        private void update_Employee_cb_CheckedChanged(object sender, EventArgs e)
-        {
-            if (update_Employee_cb.Checked)
-            {
-                tbEmplIDToUpdate.Enabled = false;
-            }
-            else
-            {
-                tbEmplIDToUpdate.Enabled = false;
-            }
-        }
-
-
         private void label24_Click(object sender, EventArgs e)
         {
 
@@ -500,6 +493,59 @@ namespace StatsSAQuestionaireApp
         private void tbEmplToUpdatte_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        //CHECK IF EMPLOYEES UPDATE CHECKBOX IS CHECKED
+        private void update_Employee_cb_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (update_Employee_cb.Checked)
+            {
+                tbEmplIDToUpdate.Enabled = true;
+            }
+            else
+            {
+                tbEmplIDToUpdate.Enabled = false;
+            }
+
+        }
+
+        private void Type_empl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string type_empl_selected = Type_empl.Text;
+            Console.WriteLine(type_empl_selected);
+        }
+
+        private void btn_DeleteEmployee_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+
+                int empl_id = Convert.ToInt32(tbEmplDtoDelete.Text);
+                string deleteQuery = $"DELETE FROM Employee WHERE Empl_ID = {empl_id}";
+                command = new SqlCommand(deleteQuery, connection);
+                adapter.DeleteCommand = command;
+                adapter.DeleteCommand.ExecuteNonQuery();
+
+                connection.Close();
+
+                DialogResult result = MessageBox.Show("Employee sucessfully deleted !!!");
+                if (result == DialogResult.OK)
+                {
+                    tbName.Text = "";
+                    tbLastname.Text = "";
+                    Type_empl.ResetText();
+                    selectEmployees();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
