@@ -19,7 +19,7 @@ namespace StatsSAQuestionaireApp
     {
         public string emp_id { set; get; }
 
-        public string connectionStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\StatsSADatabase.mdf;Integrated Security=True";
+        public string connectionStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\StatsSADatabase.mdf;Integrated Security=True";
         public String query;
         public SqlConnection connection;
         public SqlCommand command;
@@ -32,9 +32,19 @@ namespace StatsSAQuestionaireApp
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
+            lblRespIdS.Text = emp_id;
+            lblRespIDRQ.Text = emp_id;
+            lblRespIdEm.Text = emp_id;
+            lblRespIdS.Text = emp_id;
+            lblNameResp.Text = emp_id;
+
             loadDefaultSurveyValues();
             loadDefaultQuestionnaireValues();
             loadDefaultRespQuestionnaireValues();
+            loadDefaultEmployeeValues();
+            loadDefaultRespondentsValues();
+            loadDefaultCityValues();
+
 
             toolTipAddUpdateQnBtn.SetToolTip(btnAddUpdateQuestionnaire, "Click Button to insert new record update existing record");
             toolTipApproveBtn.SetToolTip(btnApproveRespQuestionnaire, "Click the button to approve the questionnaire with ID entered above");
@@ -527,7 +537,7 @@ namespace StatsSAQuestionaireApp
 
                 string updateQuery = $"Update RespondentQuestionnaire SET Approved_YN = 'Y', " +
                    $"Approved_by = '{Convert.ToInt32(emp_id)}' WHERE Resp_ID = '{Convert.ToInt32(comboBoxRespIDApprove.Text)}'" +
-                   $" AND Resp_ID = '{Convert.ToInt32(comboBoxQuestionnaireIDApprove.Text)}'";
+                   $" AND QN_ID = '{Convert.ToInt32(comboBoxQuestionnaireIDApprove.Text)}'";
 
                 command = new SqlCommand(updateQuery, connection);
                 adapter.UpdateCommand = command;
@@ -605,33 +615,6 @@ namespace StatsSAQuestionaireApp
                 while (dataReader.Read())
                 {
                     comboBoxDistrictID.Items.Add(dataReader.GetValue(0));
-                }
-
-                connection.Close();
-            }
-            catch (SqlException ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void populateFieldworkerComboBox()
-        {
-            try
-            {
-                connection = new SqlConnection(connectionStr);
-                connection.Open();
-
-                query = "SELECT * FROM Employee WHERE Type_empl = 'F'";
-                command = new SqlCommand(query, connection);
-                dataReader = command.ExecuteReader();
-
-                comboBoxFieldworker.Items.Clear();
-
-                while (dataReader.Read())
-                {
-                    comboBoxFieldworker.Items.Add(dataReader.GetValue(0));
                 }
 
                 connection.Close();
@@ -812,7 +795,7 @@ namespace StatsSAQuestionaireApp
         {
             string insertQuery = $"INSERT INTO RespondentQuestionnaire VALUES('{Convert.ToInt32(comboBoxRespID.Text)}', " +
                    $"'{comboBoxQuestionnaireID.Text}', '{dtpCompletedDate.Value}', '{Convert.ToInt32(comboBoxDistrictID.Text)}', " +
-                   $"'N', 'null', '{Convert.ToInt32(comboBoxFieldworker.Text)}')";
+                   $"'N', null, '{emp_id}')";
 
             command = new SqlCommand(insertQuery, con);
             adapter.InsertCommand = command;
@@ -826,7 +809,7 @@ namespace StatsSAQuestionaireApp
             string updateQuery = $"Update RespondentQuestionnaire SET Date_Completed = '{dtpCompletedDate.Value}', " +
                    $"District_ID = '{Convert.ToInt32(comboBoxDistrictID.Text)}', " +
                    $"Approved_By = null, " +
-                   $"Field_Worker = '{Convert.ToInt32(comboBoxFieldworker.Text)}'" +
+                   $"Field_Worker = '{emp_id}'" +
                    $"WHERE Resp_ID = '{Convert.ToInt32(comboBoxRespID.Text)}'" +
                    $"AND QN_ID = '{Convert.ToInt32(comboBoxQuestionnaireID.Text)}'";
 
@@ -857,9 +840,9 @@ namespace StatsSAQuestionaireApp
             {
                 btnApproveRespQuestionnaire.Enabled = false;
             }
+
             selectRespondentQuestionnaires();
             populateDistrictComboBox();
-            populateFieldworkerComboBox();
             populateRespondentComboBox();
         }
 
@@ -876,5 +859,415 @@ namespace StatsSAQuestionaireApp
             this.Close();
         }
 
+   
+
+        private void ExxitEmployee_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //CHECK IF EMPLOYEES UPDATE CHECKBOX IS CHECKED
+        private void update_Employee_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (update_Employee_cb.Checked)
+            {
+                tbEmplIDToUpdate.Enabled = true;
+            }
+            else
+            {
+                tbEmplIDToUpdate.Enabled = false;
+            }
+
+        }
+
+        private void btnAddUpdateEmployee_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+
+                DialogResult result;
+
+                if (update_Employee_cb.Checked && tbEmplIDToUpdate.Text.Length > 0)
+                {
+                    result = updateExistingEmplyee(adapter, connection);
+                }
+                else
+                {
+                    result = insertNewEmployee(adapter, connection);
+                }
+
+                connection.Close();
+
+                if (result == DialogResult.OK)
+                {
+                    tbEmplIDToUpdate.Text = "";
+                    tbName.Text = "";
+                    tbLastname.Text = "";
+                    Type_empl.SelectedItem = "";
+                    selectEmployees();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_DeleteEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+
+                int empl_id = Convert.ToInt32(tbEmplDtoDelete.Text);
+                string deleteQuery = $"DELETE FROM Employee WHERE Empl_ID = {empl_id}";
+                command = new SqlCommand(deleteQuery, connection);
+                adapter.DeleteCommand = command;
+                adapter.DeleteCommand.ExecuteNonQuery();
+
+                connection.Close();
+
+                DialogResult result = MessageBox.Show("Employee sucessfully deleted !!!");
+                if (result == DialogResult.OK)
+                {
+                    tbName.Text = "";
+                    tbLastname.Text = "";
+                    Type_empl.ResetText();
+                    selectEmployees();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void loadDefaultEmployeeValues()
+        {
+            tbEmplIDToUpdate.Text = "";
+            tbName.Text = "";
+            tbLastname.Text = "";
+            Type_empl.SelectedItem = "";
+
+            if (!update_Employee_cb.Checked)
+            {
+                tbEmplIDToUpdate.Enabled = false;
+
+            }
+
+            selectEmployees();
+        }
+
+        private void loadDefaultRespondentsValues()
+        {
+            tbRespCityID.Text = "";
+            tbRespID.Text = "";
+            tbRespIDDelete.Text = "";
+
+            tbRespLastName.Text = "";
+            tbRespName.Text = "";
+            tbRespStreetName.Text = "";
+            tbRespStreetnNo.Text = "";
+            tbRespCityID.Text = "";
+
+
+            if (!chbIsRespUpdate.Checked)
+            {
+                tbRespID.Enabled = false;
+
+            }
+
+            selectRespondents();
+        }
+
+        private void loadDefaultCityValues()
+        {
+            tbCityID.Text = "";
+            tbCityIdDelete.Text = "";
+            tbCityName.Text = "";
+
+
+            if (!chbIsCityUpdate.Checked)
+            {
+                tbCityID.Enabled = false;
+
+            }
+
+            selectCities();
+        }
+
+        private void selectCities()
+        {
+            try
+            {
+                string query = "SELECT * FROM City";
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+                dataset = new DataSet();
+
+                command = new SqlCommand(query, connection);
+                adapter.SelectCommand = command;
+                adapter.Fill(dataset, "City");
+
+                dgCities.DataSource = dataset;
+                dgCities.DataMember = "City";
+
+                connection.Close();
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnRespExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void selectRespondents()
+        {
+            try
+            {
+                string query = "SELECT * FROM Respondent";
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+                dataset = new DataSet();
+
+                command = new SqlCommand(query, connection);
+                adapter.SelectCommand = command;
+                adapter.Fill(dataset, "Respondent");
+
+                dgRespondents.DataSource = dataset;
+                dgRespondents.DataMember = "Respondent";
+
+                connection.Close();
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAddUpdateResp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+
+                DialogResult result;
+
+                if (chbIsRespUpdate.Checked && tbRespID.Text.Length > 0)
+                {
+                    result = updateExistingRespondentRecord(adapter, connection);
+                }
+                else
+                {
+                    result = insertRespondentNewRecord(adapter, connection);
+                }
+
+                connection.Close();
+
+                if (result == DialogResult.OK)
+                {
+                    loadDefaultRespondentsValues();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private DialogResult updateExistingRespondentRecord(SqlDataAdapter adapter, SqlConnection con)
+        {
+            string updateQuery = $"Update Respondent SET Name = '{tbRespName.Text}', LastName = '{tbRespLastName.Text}'," +
+                   $"DOB = '{dtpRespDob.Value}', Street_No_Addr ='{Convert.ToInt32(tbRespStreetnNo.Text)}', " +
+                   $"Street_Name = '{tbRespStreetName.Text}', City_ID ='{Convert.ToInt32(tbRespCityID.Text)}'" +
+                   $"WHERE Resp_ID = '{Convert.ToInt32(tbRespID.Text)}'";
+
+            command = new SqlCommand(updateQuery, con);
+            adapter.UpdateCommand = command;
+            adapter.UpdateCommand.ExecuteNonQuery();
+
+            return MessageBox.Show("Respondent with ID: " + tbRespID.Text
+                + " Sucessfully Updated !!!!");
+        }
+
+        private DialogResult insertRespondentNewRecord(SqlDataAdapter adapter, SqlConnection con)
+        {
+            string insertQuery = $"INSERT INTO Respondent VALUES('{tbRespName.Text}', '{tbRespLastName.Text}'," +
+                   $"'{dtpRespDob.Value}', '{Convert.ToInt32(tbRespStreetnNo.Text)}', '{tbRespStreetName.Text}', " +
+                   $"'{Convert.ToInt32(tbRespCityID.Text)}')";
+
+            command = new SqlCommand(insertQuery, con);
+            adapter.InsertCommand = command;
+            adapter.InsertCommand.ExecuteNonQuery();
+
+            return MessageBox.Show("New Respondent Sucessfully Added !!!!");
+        }
+
+        private void btnDeleteResp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+
+                command = new SqlCommand($"DELETE FROM Respondent WHERE Resp_ID = '{Convert.ToInt32(tbRespIDDelete.Text)}'", connection);
+                adapter.DeleteCommand = command;
+                adapter.DeleteCommand.ExecuteNonQuery();
+
+                connection.Close();
+
+                DialogResult result = MessageBox.Show("Respondent sucessfully deleted !!!");
+                if (result == DialogResult.OK)
+                {
+                    loadDefaultRespondentsValues();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void chbIsRespUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbIsRespUpdate.Checked)
+            {
+                tbRespID.Enabled = true;
+            }
+            else
+            {
+
+                tbRespID.Enabled = false;
+            }
+        }
+
+        private void btnExitCity_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void chbIsCityUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbIsCityUpdate.Checked)
+            {
+                tbCityID.Enabled = true;
+            }
+            else
+            {
+                tbCityID.Enabled = false;
+            }
+        }
+
+        private void btnAddUpdateCity_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+
+                DialogResult result;
+
+                if (chbIsCityUpdate.Checked && tbCityID.Text.Length > 0)
+                {
+                    result = updateExistingCityRecord(adapter, connection);
+                }
+                else
+                {
+                    result = insertNewCityRecord(adapter, connection);
+                }
+
+                connection.Close();
+
+                if (result == DialogResult.OK)
+                {
+                    loadDefaultCityValues();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private DialogResult updateExistingCityRecord(SqlDataAdapter adapter, SqlConnection con)
+        {
+            string updateQuery = $"Update City SET City_Name = '{tbCityName.Text}'" +
+                   $"WHERE City_ID = '{Convert.ToInt32(tbCityID.Text)}'";
+
+            command = new SqlCommand(updateQuery, con);
+            adapter.UpdateCommand = command;
+            adapter.UpdateCommand.ExecuteNonQuery();
+
+            return MessageBox.Show("City with ID: " + tbCityID.Text + " Sucessfully Updated !!!!");
+        }
+
+        private DialogResult insertNewCityRecord(SqlDataAdapter adapter, SqlConnection con)
+        {
+            string insertQuery = $"INSERT INTO City VALUES('{tbCityName.Text}')";
+
+            command = new SqlCommand(insertQuery, con);
+            adapter.InsertCommand = command;
+            adapter.InsertCommand.ExecuteNonQuery();
+
+            return MessageBox.Show("New City Sucessfully Added !!!!");
+        }
+
+        private void btnDeleteCity_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+
+                command = new SqlCommand($"DELETE FROM City WHERE City_ID = '{Convert.ToInt32(tbCityIdDelete.Text)}'", connection);
+                adapter.DeleteCommand = command;
+                adapter.DeleteCommand.ExecuteNonQuery();
+
+                connection.Close();
+
+                DialogResult result = MessageBox.Show("City sucessfully deleted !!!");
+                if (result == DialogResult.OK)
+                {
+                    loadDefaultCityValues();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
