@@ -415,15 +415,15 @@ namespace StatsSAQuestionaireApp
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.Location = new System.Drawing.Point(27, 24);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(50, 17);
+            this.label34.Size = new System.Drawing.Size(73, 17);
             this.label34.TabIndex = 32;
-            this.label34.Text = "Hello,";
+            this.label34.Text = "Welcome";
             // 
             // lblRespIdEm
             // 
             this.lblRespIdEm.AutoSize = true;
             this.lblRespIdEm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRespIdEm.Location = new System.Drawing.Point(79, 24);
+            this.lblRespIdEm.Location = new System.Drawing.Point(98, 24);
             this.lblRespIdEm.Name = "lblRespIdEm";
             this.lblRespIdEm.Size = new System.Drawing.Size(78, 17);
             this.lblRespIdEm.TabIndex = 31;
@@ -628,15 +628,15 @@ namespace StatsSAQuestionaireApp
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(37, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 17);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Hello,";
+            this.label2.Text = "Welcome";
             // 
             // lblRespIdS
             // 
             this.lblRespIdS.AutoSize = true;
             this.lblRespIdS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRespIdS.Location = new System.Drawing.Point(89, 24);
+            this.lblRespIdS.Location = new System.Drawing.Point(108, 24);
             this.lblRespIdS.Name = "lblRespIdS";
             this.lblRespIdS.Size = new System.Drawing.Size(78, 17);
             this.lblRespIdS.TabIndex = 11;
@@ -823,15 +823,15 @@ namespace StatsSAQuestionaireApp
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(37, 24);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 17);
+            this.label15.Size = new System.Drawing.Size(73, 17);
             this.label15.TabIndex = 22;
-            this.label15.Text = "Hello,";
+            this.label15.Text = "Welcome";
             // 
             // lblRespIdQ
             // 
             this.lblRespIdQ.AutoSize = true;
             this.lblRespIdQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRespIdQ.Location = new System.Drawing.Point(89, 24);
+            this.lblRespIdQ.Location = new System.Drawing.Point(116, 24);
             this.lblRespIdQ.Name = "lblRespIdQ";
             this.lblRespIdQ.Size = new System.Drawing.Size(78, 17);
             this.lblRespIdQ.TabIndex = 21;
@@ -1059,15 +1059,15 @@ namespace StatsSAQuestionaireApp
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(27, 24);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(50, 17);
+            this.label22.Size = new System.Drawing.Size(73, 17);
             this.label22.TabIndex = 33;
-            this.label22.Text = "Hello,";
+            this.label22.Text = "Welcome";
             // 
             // lblRespIDRQ
             // 
             this.lblRespIDRQ.AutoSize = true;
             this.lblRespIDRQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRespIDRQ.Location = new System.Drawing.Point(79, 24);
+            this.lblRespIDRQ.Location = new System.Drawing.Point(102, 24);
             this.lblRespIDRQ.Name = "lblRespIDRQ";
             this.lblRespIDRQ.Size = new System.Drawing.Size(78, 17);
             this.lblRespIDRQ.TabIndex = 32;
@@ -1324,15 +1324,15 @@ namespace StatsSAQuestionaireApp
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.Location = new System.Drawing.Point(27, 24);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(50, 17);
+            this.label39.Size = new System.Drawing.Size(73, 17);
             this.label39.TabIndex = 32;
-            this.label39.Text = "Hello,";
+            this.label39.Text = "Welcome";
             // 
             // lblNameResp
             // 
             this.lblNameResp.AutoSize = true;
             this.lblNameResp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameResp.Location = new System.Drawing.Point(79, 24);
+            this.lblNameResp.Location = new System.Drawing.Point(96, 24);
             this.lblNameResp.Name = "lblNameResp";
             this.lblNameResp.Size = new System.Drawing.Size(78, 17);
             this.lblNameResp.TabIndex = 31;
@@ -1492,15 +1492,15 @@ namespace StatsSAQuestionaireApp
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.Location = new System.Drawing.Point(27, 24);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(50, 17);
+            this.label49.Size = new System.Drawing.Size(73, 17);
             this.label49.TabIndex = 32;
-            this.label49.Text = "Hello,";
+            this.label49.Text = "Welcome";
             // 
             // lblnameCity
             // 
             this.lblnameCity.AutoSize = true;
             this.lblnameCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnameCity.Location = new System.Drawing.Point(79, 24);
+            this.lblnameCity.Location = new System.Drawing.Point(106, 24);
             this.lblnameCity.Name = "lblnameCity";
             this.lblnameCity.Size = new System.Drawing.Size(78, 17);
             this.lblnameCity.TabIndex = 31;
@@ -1705,7 +1705,7 @@ namespace StatsSAQuestionaireApp
             this.ClientSize = new System.Drawing.Size(832, 604);
             this.Controls.Add(this.tbMainForm);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Stats SA Questionnaire Application";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tbMainForm.ResumeLayout(false);
             this.tpEmployee.ResumeLayout(false);

@@ -39,6 +39,7 @@ namespace StatsSAQuestionaireApp
             lblNameResp.Text = emp_id;
             lblnameCity.Text = emp_id;
             lblNameDistrict.Text = emp_id;
+            lblRespIdQ.Text = emp_id;
 
             loadDefaultSurveyValues();
             loadDefaultQuestionnaireValues();
