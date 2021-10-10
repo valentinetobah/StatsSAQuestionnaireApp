@@ -3,7 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		Shané Erasmus
+-- Author:		ShanÃ© Erasmus
 -- Create date: 2021/09/27
 -- Description:	CMPG223  Create required tables for StatsSa App Use Cases
 -- =============================================
@@ -68,6 +68,3 @@ CREATE TABLE SystemUser(
 	Password VARCHAR(100),
 	Employee_ID INT FOREIGN KEY REFERENCES Employee(Empl_ID)
 )
-
-
-

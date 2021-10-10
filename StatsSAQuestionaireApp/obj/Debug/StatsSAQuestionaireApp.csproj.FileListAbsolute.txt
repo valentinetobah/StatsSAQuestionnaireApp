@@ -10,3 +10,15 @@ C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQue
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.pdb
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.LoginForm.resources
 C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.MainForm.resources
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSAQuestionaireApp.exe.config
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSAQuestionaireApp.exe
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\bin\Debug\StatsSAQuestionaireApp.pdb
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.csprojAssemblyReference.cache
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.LoginForm.resources
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.MainForm.resources
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.Properties.Resources.resources
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.Survey.resources
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.csproj.GenerateResource.cache
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.csproj.CoreCompileInputs.cache
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.exe
+C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\obj\Debug\StatsSAQuestionaireApp.pdb

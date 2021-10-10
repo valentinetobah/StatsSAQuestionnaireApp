@@ -19,7 +19,7 @@ namespace StatsSAQuestionaireApp
     {
         public string emp_id { set; get; }
 
-        public string connectionStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\35968060\source\repos\valentinetobah\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\StatsSADatabase.mdf;Integrated Security=True";
+        public string connectionStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\user\Dev\StatsSAQuestionnaireApp\StatsSAQuestionaireApp\StatsSADatabase.mdf;Integrated Security=True";
         public String query;
         public SqlConnection connection;
         public SqlCommand command;
@@ -47,6 +47,7 @@ namespace StatsSAQuestionaireApp
 
         }
 
+        //SELECT * FROM SURVEYS
         private void selectSurveys()
         {
             try
@@ -73,6 +74,37 @@ namespace StatsSAQuestionaireApp
                 MessageBox.Show(ex.Message);
             }
         }
+
+
+        //SELECT ALL FROM EMPLOYEE
+        private void selectEmployees()
+        {
+            try
+            {
+                string query = "SELECT * FROM Employee";
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+                dataset = new DataSet();
+
+                command = new SqlCommand(query, connection);
+                adapter.SelectCommand = command;
+                adapter.Fill(dataset, "Employee");
+
+                dgEmployee.DataSource = dataset;
+                dgEmployee.DataMember = "Employee";
+
+                connection.Close();
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        //CHECK IF THE UPDATE SURVEY CHECKBOX IS TICKED
         private void cbIsUpdate_CheckedChanged_1(object sender, EventArgs e)
         {
             if (cbIsUpdate.Checked)
@@ -85,6 +117,8 @@ namespace StatsSAQuestionaireApp
             }
         }
 
+
+        //UPDATE SURVEY CLICK
         private void btnAddUpdateSurvey_Click(object sender, EventArgs e)
         {
             try
@@ -121,6 +155,47 @@ namespace StatsSAQuestionaireApp
             }
         }
 
+        //UPDATE EMPLOYEE CLICK
+        private void btnAddUpdateEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+
+                DialogResult result;
+
+                if (update_Employee_cb.Checked && tbEmplIDToUpdate.Text.Length > 0)
+                {
+                    result = updateExistingEmplyee(adapter, connection);
+                }
+                else
+                {
+                    result = insertNewEmployee(adapter, connection);
+                }
+
+                connection.Close();
+
+                if (result == DialogResult.OK)
+                {
+                    tbEmplIDToUpdate.Text = "";
+                    tbName.Text = "";
+                    tbLastname.Text = "";
+                    Type_empl.SelectedItem = "";
+                    selectEmployees();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        //INSERT NEW RECORD TO SURVEY TABLE
         private DialogResult insertNewRecord(SqlDataAdapter adapter, SqlConnection con)
         {
             string insertQuery = $"INSERT INTO Survey VALUES('{tbSurveyName.Text}', " +
@@ -133,6 +208,44 @@ namespace StatsSAQuestionaireApp
             return MessageBox.Show("New Survey Sucessfully Added !!!!");
         }
 
+
+        //INSERT RECORD TO EMPLOYEE TABLE
+        private DialogResult insertNewEmployee(SqlDataAdapter adapter, SqlConnection con)
+        {
+
+
+            string selectedType = Type_empl.SelectedItem.ToString();
+
+
+            if (selectedType == "Supervisor")
+            {
+                selectedType = "S";
+            }
+            else if (selectedType == "Manager")
+            {
+                selectedType = "M";
+            }
+            else if (selectedType == "DistrictManager")
+            {
+                selectedType = "DM";
+            }
+            else if (selectedType == "FieldWorker")
+            {
+                selectedType = "F";
+            }
+
+            string insertQuery = $"INSERT INTO Employee (Name, LastName, Type_empl) VALUES ('{tbName.Text}','{tbLastname.Text}','{selectedType}')";
+
+            command = new SqlCommand(insertQuery, con);
+            adapter.InsertCommand = command;
+            adapter.InsertCommand.ExecuteNonQuery();
+
+            return MessageBox.Show("New Employee Sucessfully Added !!!!");
+        }
+
+
+
+        //UPDATE EXISTING SURVEY RECORD
         private DialogResult updateExistingRecord(SqlDataAdapter adapter, SqlConnection con)
         {
             string updateQuery = $"Update Survey SET Name = '{tbSurveyName.Text}', " +
@@ -146,6 +259,45 @@ namespace StatsSAQuestionaireApp
             return MessageBox.Show("Survey with ID: " + tbSurveyIDToUpdate.Text
                 + " Sucessfully Updated !!!!");
         }
+
+        private DialogResult updateExistingEmplyee(SqlDataAdapter adapter, SqlConnection con)
+        {
+
+            string selectedType = Type_empl.SelectedItem.ToString();
+
+
+            if (selectedType == "Supervisor")
+            {
+                selectedType = "S";
+            }
+            else if (selectedType == "Manager")
+            {
+                selectedType = "M";
+            }
+            else if (selectedType == "DistrictManager")
+            {
+                selectedType = "DM";
+            }
+            else if (selectedType == "FieldWorker")
+            {
+                selectedType = "F";
+            }
+
+
+            string updateQuery = $"Update Employee SET Name = '{tbName.Text}', " +
+                   $"LastName = '{tbLastname.Text}', Type_empl ='{selectedType}'" +
+                   $"WHERE Empl_ID = '{Convert.ToInt32(tbEmplIDToUpdate.Text)}'";
+
+            command = new SqlCommand(updateQuery, con);
+            adapter.UpdateCommand = command;
+            adapter.UpdateCommand.ExecuteNonQuery();
+
+            return MessageBox.Show("Employee with ID: " + tbEmplIDToUpdate.Text
+                + " Sucessfully Updated !!!!");
+        }
+
+
+        //DELETE EXISTING SURVEY RECORD
         private void btnDeleteSurvey_Click_1(object sender, EventArgs e)
         {
             try

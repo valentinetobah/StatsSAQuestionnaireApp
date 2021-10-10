@@ -162,6 +162,7 @@ namespace StatsSAQuestionaireApp
             this.dgSurveys.Name = "dgSurveys";
             this.dgSurveys.Size = new System.Drawing.Size(442, 199);
             this.dgSurveys.TabIndex = 19;
+            this.dgSurveys.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSurveys_CellContentClick);
             // 
             // label7
             // 
