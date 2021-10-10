@@ -166,6 +166,23 @@ namespace StatsSAQuestionaireApp
             this.lblnameCity = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.tbCityName = new System.Windows.Forms.TextBox();
+            this.tbDistrict = new System.Windows.Forms.TabPage();
+            this.dgDistricts = new System.Windows.Forms.DataGridView();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.tbDistrictIdDelete = new System.Windows.Forms.TextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.tbDistrictName = new System.Windows.Forms.TextBox();
+            this.btnExitdistrict = new System.Windows.Forms.Button();
+            this.label52 = new System.Windows.Forms.Label();
+            this.chbIsDistrictUpdate = new System.Windows.Forms.CheckBox();
+            this.tbDistrictID = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.btnAddUpdateDistrict = new System.Windows.Forms.Button();
+            this.btnDeleteDistrict = new System.Windows.Forms.Button();
+            this.label54 = new System.Windows.Forms.Label();
+            this.lblNameDistrict = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
             this.tbMainForm.SuspendLayout();
             this.tpEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmployee)).BeginInit();
@@ -185,6 +202,9 @@ namespace StatsSAQuestionaireApp
             this.tbCities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCities)).BeginInit();
             this.groupBox6.SuspendLayout();
+            this.tbDistrict.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDistricts)).BeginInit();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbMainForm
@@ -195,6 +215,7 @@ namespace StatsSAQuestionaireApp
             this.tbMainForm.Controls.Add(this.tbRespQuestionnaires);
             this.tbMainForm.Controls.Add(this.tpRespondents);
             this.tbMainForm.Controls.Add(this.tbCities);
+            this.tbMainForm.Controls.Add(this.tbDistrict);
             this.tbMainForm.Location = new System.Drawing.Point(0, 0);
             this.tbMainForm.Name = "tbMainForm";
             this.tbMainForm.SelectedIndex = 0;
@@ -1502,6 +1523,181 @@ namespace StatsSAQuestionaireApp
             this.tbCityName.Size = new System.Drawing.Size(246, 20);
             this.tbCityName.TabIndex = 13;
             // 
+            // tbDistrict
+            // 
+            this.tbDistrict.Controls.Add(this.dgDistricts);
+            this.tbDistrict.Controls.Add(this.label48);
+            this.tbDistrict.Controls.Add(this.label50);
+            this.tbDistrict.Controls.Add(this.tbDistrictIdDelete);
+            this.tbDistrict.Controls.Add(this.groupBox7);
+            this.tbDistrict.Controls.Add(this.btnDeleteDistrict);
+            this.tbDistrict.Controls.Add(this.label54);
+            this.tbDistrict.Controls.Add(this.lblNameDistrict);
+            this.tbDistrict.Controls.Add(this.label56);
+            this.tbDistrict.Location = new System.Drawing.Point(4, 22);
+            this.tbDistrict.Name = "tbDistrict";
+            this.tbDistrict.Padding = new System.Windows.Forms.Padding(3);
+            this.tbDistrict.Size = new System.Drawing.Size(821, 566);
+            this.tbDistrict.TabIndex = 9;
+            this.tbDistrict.Text = "District";
+            this.tbDistrict.UseVisualStyleBackColor = true;
+            // 
+            // dgDistricts
+            // 
+            this.dgDistricts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDistricts.Location = new System.Drawing.Point(36, 107);
+            this.dgDistricts.Name = "dgDistricts";
+            this.dgDistricts.Size = new System.Drawing.Size(373, 199);
+            this.dgDistricts.TabIndex = 47;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(452, 73);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(249, 13);
+            this.label48.TabIndex = 46;
+            this.label48.Text = "ENTER DISTRICT ID BELOW TO DELETE";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(443, 122);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(86, 13);
+            this.label50.TabIndex = 44;
+            this.label50.Text = "DISTRICT ID:";
+            // 
+            // tbDistrictIdDelete
+            // 
+            this.tbDistrictIdDelete.Location = new System.Drawing.Point(535, 119);
+            this.tbDistrictIdDelete.Name = "tbDistrictIdDelete";
+            this.tbDistrictIdDelete.Size = new System.Drawing.Size(225, 20);
+            this.tbDistrictIdDelete.TabIndex = 45;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.tbDistrictName);
+            this.groupBox7.Controls.Add(this.btnExitdistrict);
+            this.groupBox7.Controls.Add(this.label52);
+            this.groupBox7.Controls.Add(this.chbIsDistrictUpdate);
+            this.groupBox7.Controls.Add(this.tbDistrictID);
+            this.groupBox7.Controls.Add(this.label53);
+            this.groupBox7.Controls.Add(this.btnAddUpdateDistrict);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(36, 325);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(749, 200);
+            this.groupBox7.TabIndex = 43;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "ADD NEW OR UPDATE EXISTING DISTRICT";
+            // 
+            // tbDistrictName
+            // 
+            this.tbDistrictName.Location = new System.Drawing.Point(467, 65);
+            this.tbDistrictName.Name = "tbDistrictName";
+            this.tbDistrictName.Size = new System.Drawing.Size(246, 20);
+            this.tbDistrictName.TabIndex = 13;
+            // 
+            // btnExitdistrict
+            // 
+            this.btnExitdistrict.Location = new System.Drawing.Point(524, 111);
+            this.btnExitdistrict.Name = "btnExitdistrict";
+            this.btnExitdistrict.Size = new System.Drawing.Size(189, 51);
+            this.btnExitdistrict.TabIndex = 12;
+            this.btnExitdistrict.Text = "Exit";
+            this.btnExitdistrict.UseVisualStyleBackColor = true;
+            this.btnExitdistrict.Click += new System.EventHandler(this.btnExitdistrict_Click);
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(378, 68);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(87, 13);
+            this.label52.TabIndex = 10;
+            this.label52.Text = "District Name:";
+            // 
+            // chbIsDistrictUpdate
+            // 
+            this.chbIsDistrictUpdate.AutoSize = true;
+            this.chbIsDistrictUpdate.Location = new System.Drawing.Point(107, 29);
+            this.chbIsDistrictUpdate.Name = "chbIsDistrictUpdate";
+            this.chbIsDistrictUpdate.Size = new System.Drawing.Size(186, 17);
+            this.chbIsDistrictUpdate.TabIndex = 9;
+            this.chbIsDistrictUpdate.Text = "Updating an existing District";
+            this.chbIsDistrictUpdate.UseVisualStyleBackColor = true;
+            this.chbIsDistrictUpdate.CheckedChanged += new System.EventHandler(this.chbIsDistrictUpdate_CheckedChanged);
+            // 
+            // tbDistrictID
+            // 
+            this.tbDistrictID.Location = new System.Drawing.Point(107, 65);
+            this.tbDistrictID.Name = "tbDistrictID";
+            this.tbDistrictID.Size = new System.Drawing.Size(246, 20);
+            this.tbDistrictID.TabIndex = 8;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(39, 68);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(68, 13);
+            this.label53.TabIndex = 7;
+            this.label53.Text = "District ID:";
+            // 
+            // btnAddUpdateDistrict
+            // 
+            this.btnAddUpdateDistrict.Location = new System.Drawing.Point(154, 111);
+            this.btnAddUpdateDistrict.Name = "btnAddUpdateDistrict";
+            this.btnAddUpdateDistrict.Size = new System.Drawing.Size(199, 51);
+            this.btnAddUpdateDistrict.TabIndex = 6;
+            this.btnAddUpdateDistrict.Text = "Add New/Update Existing";
+            this.btnAddUpdateDistrict.UseVisualStyleBackColor = true;
+            this.btnAddUpdateDistrict.Click += new System.EventHandler(this.btnAddUpdateDistrict_Click);
+            // 
+            // btnDeleteDistrict
+            // 
+            this.btnDeleteDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteDistrict.Location = new System.Drawing.Point(685, 145);
+            this.btnDeleteDistrict.Name = "btnDeleteDistrict";
+            this.btnDeleteDistrict.Size = new System.Drawing.Size(75, 42);
+            this.btnDeleteDistrict.TabIndex = 42;
+            this.btnDeleteDistrict.Text = "Delete";
+            this.btnDeleteDistrict.UseVisualStyleBackColor = true;
+            this.btnDeleteDistrict.Click += new System.EventHandler(this.btnDeleteDistrict_Click);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(37, 42);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(73, 17);
+            this.label54.TabIndex = 41;
+            this.label54.Text = "Welcome";
+            // 
+            // lblNameDistrict
+            // 
+            this.lblNameDistrict.AutoSize = true;
+            this.lblNameDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameDistrict.Location = new System.Drawing.Point(116, 42);
+            this.lblNameDistrict.Name = "lblNameDistrict";
+            this.lblNameDistrict.Size = new System.Drawing.Size(78, 17);
+            this.lblNameDistrict.TabIndex = 40;
+            this.lblNameDistrict.Text = "{lblName}";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(36, 91);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(194, 13);
+            this.label56.TabIndex = 39;
+            this.label56.Text = "LIST OF AVAILABLE DISTRICTS";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1542,6 +1738,11 @@ namespace StatsSAQuestionaireApp
             ((System.ComponentModel.ISupportInitialize)(this.dgCities)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.tbDistrict.ResumeLayout(false);
+            this.tbDistrict.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDistricts)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1684,5 +1885,22 @@ namespace StatsSAQuestionaireApp
         private System.Windows.Forms.Label lblnameCity;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TextBox tbCityName;
+        private System.Windows.Forms.TabPage tbDistrict;
+        private System.Windows.Forms.DataGridView dgDistricts;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.TextBox tbDistrictIdDelete;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox tbDistrictName;
+        private System.Windows.Forms.Button btnExitdistrict;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.CheckBox chbIsDistrictUpdate;
+        private System.Windows.Forms.TextBox tbDistrictID;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Button btnAddUpdateDistrict;
+        private System.Windows.Forms.Button btnDeleteDistrict;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label lblNameDistrict;
+        private System.Windows.Forms.Label label56;
     }
 }

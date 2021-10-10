@@ -37,6 +37,8 @@ namespace StatsSAQuestionaireApp
             lblRespIdEm.Text = emp_id;
             lblRespIdS.Text = emp_id;
             lblNameResp.Text = emp_id;
+            lblnameCity.Text = emp_id;
+            lblNameDistrict.Text = emp_id;
 
             loadDefaultSurveyValues();
             loadDefaultQuestionnaireValues();
@@ -44,7 +46,7 @@ namespace StatsSAQuestionaireApp
             loadDefaultEmployeeValues();
             loadDefaultRespondentsValues();
             loadDefaultCityValues();
-
+            loadDefaultDistrictValues();
 
             toolTipAddUpdateQnBtn.SetToolTip(btnAddUpdateQuestionnaire, "Click Button to insert new record update existing record");
             toolTipApproveBtn.SetToolTip(btnApproveRespQuestionnaire, "Click the button to approve the questionnaire with ID entered above");
@@ -1006,6 +1008,49 @@ namespace StatsSAQuestionaireApp
             selectCities();
         }
 
+        private void loadDefaultDistrictValues()
+        {
+            tbDistrictID.Text = "";
+            tbDistrictIdDelete.Text = "";
+            tbDistrictName.Text = "";
+
+
+            if (!chbIsDistrictUpdate.Checked)
+            {
+                tbDistrictID.Enabled = false;
+
+            }
+
+            selecDistricts();
+        }
+
+        private void selecDistricts()
+        {
+            try
+            {
+                string query = "SELECT * FROM District";
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+                dataset = new DataSet();
+
+                command = new SqlCommand(query, connection);
+                adapter.SelectCommand = command;
+                adapter.Fill(dataset, "District");
+
+                dgDistricts.DataSource = dataset;
+                dgDistricts.DataMember = "District";
+
+                connection.Close();
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void selectCities()
         {
             try
@@ -1267,6 +1312,108 @@ namespace StatsSAQuestionaireApp
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnExitdistrict_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAddUpdateDistrict_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+
+                DialogResult result;
+
+                if (chbIsDistrictUpdate.Checked && tbDistrictID.Text.Length > 0)
+                {
+                    result = updateExistingDistrictRecord(adapter, connection);
+                }
+                else
+                {
+                    result = insertNewDistrictRecord(adapter, connection);
+                }
+
+                connection.Close();
+
+                if (result == DialogResult.OK)
+                {
+                    loadDefaultDistrictValues();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDeleteDistrict_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionStr);
+                connection.Open();
+
+                adapter = new SqlDataAdapter();
+
+                command = new SqlCommand($"DELETE FROM District WHERE District_ID = '{Convert.ToInt32(tbDistrictIdDelete.Text)}'", connection);
+                adapter.DeleteCommand = command;
+                adapter.DeleteCommand.ExecuteNonQuery();
+
+                connection.Close();
+
+                DialogResult result = MessageBox.Show("District sucessfully deleted !!!");
+                if (result == DialogResult.OK)
+                {
+                    loadDefaultDistrictValues();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private DialogResult updateExistingDistrictRecord(SqlDataAdapter adapter, SqlConnection con)
+        {
+            string updateQuery = $"Update District SET District_Name = '{tbDistrictName.Text}'" +
+                   $"WHERE District_ID = '{Convert.ToInt32(tbDistrictID.Text)}'";
+
+            command = new SqlCommand(updateQuery, con);
+            adapter.UpdateCommand = command;
+            adapter.UpdateCommand.ExecuteNonQuery();
+
+            return MessageBox.Show("District with ID: " + tbDistrictID.Text + " Sucessfully Updated !!!!");
+        }
+
+        private DialogResult insertNewDistrictRecord(SqlDataAdapter adapter, SqlConnection con)
+        {
+            string insertQuery = $"INSERT INTO District VALUES('{tbDistrictName.Text}')";
+
+            command = new SqlCommand(insertQuery, con);
+            adapter.InsertCommand = command;
+            adapter.InsertCommand.ExecuteNonQuery();
+
+            return MessageBox.Show("New District Sucessfully Added !!!!");
+        }
+
+        private void chbIsDistrictUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbIsDistrictUpdate.Checked)
+            {
+                tbDistrictID.Enabled = true;
+            }
+            else
+            {
+                tbDistrictID.Enabled = false;
             }
         }
     }
