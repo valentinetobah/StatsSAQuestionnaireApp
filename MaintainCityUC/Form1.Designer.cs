@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCityID = new System.Windows.Forms.TextBox();
-            this.txtCityName = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txtCityName = new System.Windows.Forms.TextBox();
+            this.txtCityID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,37 +53,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Maintain City";
             // 
-            // label1
+            // btnDelete
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "City ID  :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 106);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "City Name :";
-            // 
-            // txtCityID
-            // 
-            this.txtCityID.Location = new System.Drawing.Point(169, 49);
-            this.txtCityID.Name = "txtCityID";
-            this.txtCityID.Size = new System.Drawing.Size(145, 20);
-            this.txtCityID.TabIndex = 2;
-            // 
-            // txtCityName
-            // 
-            this.txtCityName.Location = new System.Drawing.Point(169, 103);
-            this.txtCityName.Name = "txtCityName";
-            this.txtCityName.Size = new System.Drawing.Size(145, 20);
-            this.txtCityName.TabIndex = 3;
+            this.btnDelete.Location = new System.Drawing.Point(195, 162);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(107, 23);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -95,15 +73,37 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnDelete
+            // txtCityName
             // 
-            this.btnDelete.Location = new System.Drawing.Point(195, 162);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(107, 23);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.txtCityName.Location = new System.Drawing.Point(169, 103);
+            this.txtCityName.Name = "txtCityName";
+            this.txtCityName.Size = new System.Drawing.Size(145, 20);
+            this.txtCityName.TabIndex = 3;
+            // 
+            // txtCityID
+            // 
+            this.txtCityID.Location = new System.Drawing.Point(169, 49);
+            this.txtCityID.Name = "txtCityID";
+            this.txtCityID.Size = new System.Drawing.Size(145, 20);
+            this.txtCityID.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(42, 106);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "City Name :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(42, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "City ID  :";
             // 
             // Form1
             // 
