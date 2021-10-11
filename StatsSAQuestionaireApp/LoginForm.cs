@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 /**
- * Name: VN Tobah
- * Student Number: 35968060
+/**
+ * CMPG223 Project Group 16
+ * Group Members :Shané Erasmus;Kgolagano Moetle;Valentine Tobah;Leonard Molefi
  *
  */
 namespace StatsSAQuestionaireApp
